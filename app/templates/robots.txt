@@ -1,0 +1,8 @@
+# robots.txt
+
+User-agent: *
+Disallow: /admin/
+Disallow: /static/
+Disallow: /media/
+
+Sitemap: {{ request.build_absolute_uri }}/sitemap.xm

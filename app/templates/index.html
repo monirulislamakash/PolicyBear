@@ -20,7 +20,7 @@
                 <p class="heroSectionText2">We help you find the right plan with confidence — no jargon, no pressure,
                     just support.</p>
                 <div class="heroSectionButton">
-                    <a href="#" class="HerroButton-1">
+                    <a href="{% url 'supplement-insurance' %}" class="HerroButton-1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
                             <g clip-path="url(#clip0_5869_5200)">
                                 <path
@@ -35,7 +35,7 @@
                         </svg>
                         Start My Free Quote
                     </a>
-                    <a href="#" class="HerroButton-2">
+                    <a href="{% url 'affordable-health-insurance' %}" class="HerroButton-2">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
                             <path
                                 d="M13.5 1.5H4.5C3.67157 1.5 3 2.17157 3 3V15C3 15.8284 3.67157 16.5 4.5 16.5H13.5C14.3284 16.5 15 15.8284 15 15V3C15 2.17157 14.3284 1.5 13.5 1.5Z"
@@ -158,15 +158,17 @@
                 </div>
             </div>
             <div class="heroSectionImageWaper">
-                <img class="heroSectionImage" src="{% static 'images/heroSectionImage.webp' %}"
-                    alt="Hero Section Image">
+                <video class="heroSectionImage" id="myVideo" autoplay muted loop onclick="pushplay()" loading="lazy"
+                    poster="{% static 'images/heroSectionImage.webp' %}">
+                    <source src="{% static 'images/HeroVideo.mp4' %}" type="video/mp4">
+                </video>
             </div>
         </div>
     </div>
 </div>
 <div class="WhyUs">
     <div class="container">
-        <div class="WhyUsWaper">
+        <div class="WhyUsWaper" data-aos="fade-up">
             <h1 class="WhyUsWaperTitel">Here’s Why Policy Bear is Your Trusted Advocate</h1>
             <div class="WhyUsCardWaper">
                 <div class="WhyUsCard">
@@ -237,10 +239,10 @@
 <div class="WhyStandOut">
     <div class="container">
         <div class="WhyStandOutWaper">
-            <h1 class="WhyStandOutTitel">Why Policy Bear Stands Out</h1>
-            <p class="WhyStandOutText">See how we put your needs first — not profits</p>
+            <h1 class="WhyStandOutTitel" data-aos="fade-up">Why Policy Bear Stands Out</h1>
+            <p class="WhyStandOutText"data-aos="fade-up">See how we put your needs first — not profits</p>
 
-            <div class="WhyStandOutTable">
+            <div class="WhyStandOutTable"  data-aos="zoom-in">
                 <div class="WhyStandOutTableOne">
                     <div class="WhyStandOutTableHeadOne">Features & Services</div>
                     <div class="WhyStandOutTableDataOne">Personalized ACA Plan Matching</div>
@@ -420,8 +422,8 @@
                 </div>
             </div>
             <div class="WhyStandOutTableButtonWaper">
-                <a href="#" class="">
-                    <button class="WhyStandOutTableButton">See How We Can Help You</button>
+                <a href="{% url 'supplement-insurance' %}" class="">
+                    <button class="WhyStandOutTableButton" data-aos="flip-right">See How We Can Help You</button>
                 </a>
             </div>
         </div>
@@ -431,70 +433,136 @@
     <img src="{% static 'images/WhoWeHelp.webp' %}" loading="lazy" alt="Who We Help" class="WhoWeHelpImage">
     <div class="container">
         <div class="WhoWeHelpWaper">
-            <h2 class="WhoWeHelpTitle">Who We Help</h2>
-            <p class="WhoWeHelpText">Affordable Plans for Families, Individuals & Small Businesses</p>
-            <div class="section first-section">
-                <div class="first-section-Image">
-                    <img src="{% static 'images/whowehelpsection1.webp' %}" loading="lazy" alt="Who We Help Image">
+            <h2 class="WhoWeHelpTitle" data-aos="fade-up">Who We Help</h2>
+            <p class="WhoWeHelpText" data-aos="fade-up">Affordable Plans for Families, Individuals & Small Businesses</p>
+            <div class="slider-container">
+                <div class="section first-section">
+                    <div class="first-section-Image">
+                        <img src="{% static 'images/whowehelpsection1.webp' %}" loading="lazy" alt="Who We Help Image" data-aos="fade-right">
+                    </div>
+                    <div class="first-section-Test" data-aos="fade-left">
+                        <h1>Individual & Family Coverage</h1>
+                        <p>
+                            Finding the right health plan shouldn’t feel overwhelming. We help families and individuals
+                            get
+                            the right coverage for their needs — with no pressure.
+                        </p>
+                        <ul>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"
+                                    fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M16.0057 2.0083C23.7364 2.0083 30.0058 8.27771 30.0058 16.0084C30.0058 23.7391 23.7364 30.0085 16.0057 30.0085C8.27503 30.0085 2.00562 23.7391 2.00562 16.0084C2.00562 8.27771 8.27503 2.0083 16.0057 2.0083ZM13.0984 20.5557L9.67084 17.1253C9.08691 16.541 9.08679 15.5882 9.67084 15.0041C10.255 14.42 11.2121 14.4237 11.792 15.0041L14.2084 17.4224L20.2196 11.4112C20.8038 10.827 21.7567 10.827 22.3408 11.4112C22.925 11.9952 22.9241 12.9489 22.3408 13.5323L15.2673 20.6058C14.6839 21.1891 13.7302 21.19 13.1461 20.6058C13.1297 20.5894 13.1139 20.5727 13.0984 20.5557Z"
+                                        fill="#78BE20" />
+                                </svg>
+                                Understand deductibles, networks, prescription coverage
+                            </li>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"
+                                    fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M16.0057 2.0083C23.7364 2.0083 30.0058 8.27771 30.0058 16.0084C30.0058 23.7391 23.7364 30.0085 16.0057 30.0085C8.27503 30.0085 2.00562 23.7391 2.00562 16.0084C2.00562 8.27771 8.27503 2.0083 16.0057 2.0083ZM13.0984 20.5557L9.67084 17.1253C9.08691 16.541 9.08679 15.5882 9.67084 15.0041C10.255 14.42 11.2121 14.4237 11.792 15.0041L14.2084 17.4224L20.2196 11.4112C20.8038 10.827 21.7567 10.827 22.3408 11.4112C22.925 11.9952 22.9241 12.9489 22.3408 13.5323L15.2673 20.6058C14.6839 21.1891 13.7302 21.19 13.1461 20.6058C13.1297 20.5894 13.1139 20.5727 13.0984 20.5557Z"
+                                        fill="#78BE20" />
+                                </svg>
+                                Get plans tailored to your needs and budget
+                            </li>
+
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"
+                                    fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M16.0057 2.0083C23.7364 2.0083 30.0058 8.27771 30.0058 16.0084C30.0058 23.7391 23.7364 30.0085 16.0057 30.0085C8.27503 30.0085 2.00562 23.7391 2.00562 16.0084C2.00562 8.27771 8.27503 2.0083 16.0057 2.0083ZM13.0984 20.5557L9.67084 17.1253C9.08691 16.541 9.08679 15.5882 9.67084 15.0041C10.255 14.42 11.2121 14.4237 11.792 15.0041L14.2084 17.4224L20.2196 11.4112C20.8038 10.827 21.7567 10.827 22.3408 11.4112C22.925 11.9952 22.9241 12.9489 22.3408 13.5323L15.2673 20.6058C14.6839 21.1891 13.7302 21.19 13.1461 20.6058C13.1297 20.5894 13.1139 20.5727 13.0984 20.5557Z"
+                                        fill="#78BE20" />
+                                </svg>
+                                Protection from excessive hospital bills
+                            </li>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"
+                                    fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M16.0057 2.0083C23.7364 2.0083 30.0058 8.27771 30.0058 16.0084C30.0058 23.7391 23.7364 30.0085 16.0057 30.0085C8.27503 30.0085 2.00562 23.7391 2.00562 16.0084C2.00562 8.27771 8.27503 2.0083 16.0057 2.0083ZM13.0984 20.5557L9.67084 17.1253C9.08691 16.541 9.08679 15.5882 9.67084 15.0041C10.255 14.42 11.2121 14.4237 11.792 15.0041L14.2084 17.4224L20.2196 11.4112C20.8038 10.827 21.7567 10.827 22.3408 11.4112C22.925 11.9952 22.9241 12.9489 22.3408 13.5323L15.2673 20.6058C14.6839 21.1891 13.7302 21.19 13.1461 20.6058C13.1297 20.5894 13.1139 20.5727 13.0984 20.5557Z"
+                                        fill="#78BE20" />
+                                </svg>
+                                Manageable monthly payments
+                            </li>
+                        </ul>
+                        <a href="tel:844POL-BEAR">
+                            <button class="WhoWeHelpButton">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
+                                    fill="none">
+                                    <path
+                                        d="M14.6667 11.2802V13.2802C14.6675 13.4659 14.6294 13.6497 14.555 13.8198C14.4807 13.9899 14.3716 14.1426 14.2348 14.2681C14.0979 14.3937 13.9364 14.4892 13.7605 14.5487C13.5847 14.6082 13.3983 14.6303 13.2134 14.6136C11.1619 14.3907 9.19137 13.6897 7.46004 12.5669C5.84926 11.5433 4.48359 10.1777 3.46004 8.56689C2.33336 6.8277 1.6322 4.84756 1.41337 2.78689C1.39671 2.60254 1.41862 2.41673 1.4777 2.24131C1.53679 2.06589 1.63175 1.90469 1.75655 1.76797C1.88134 1.63126 2.03324 1.52203 2.20256 1.44724C2.37189 1.37245 2.55493 1.33374 2.74004 1.33356H4.74004C5.06357 1.33038 5.37723 1.44495 5.62254 1.65592C5.86786 1.86689 6.02809 2.15986 6.07337 2.48023C6.15779 3.12027 6.31434 3.74871 6.54004 4.35356C6.62973 4.59218 6.64915 4.8515 6.59597 5.10081C6.5428 5.35012 6.41928 5.57897 6.24004 5.76023L5.39337 6.60689C6.34241 8.27592 7.72434 9.65786 9.39337 10.6069L10.24 9.76023C10.4213 9.58099 10.6501 9.45746 10.8994 9.40429C11.1488 9.35112 11.4081 9.37053 11.6467 9.46023C12.2516 9.68593 12.88 9.84248 13.52 9.92689C13.8439 9.97258 14.1396 10.1357 14.3511 10.3852C14.5625 10.6348 14.6748 10.9533 14.6667 11.2802Z"
+                                        stroke="#073B89" stroke-width="1.33333" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                                Get Coverage for My Family
+                            </button>
+                        </a>
+                        <p class="WhoWeHelpButtonLastText">No obligation, quick and easy process.</p>
+                    </div>
                 </div>
-                <div class="first-section-Test">
-                    <h1>Individual & Family Coverage</h1>
-                    <p>
-                        Finding the right health plan shouldn’t feel overwhelming. We help families and individuals get
-                        the right coverage for their needs — with no pressure.
-                    </p>
-                    <ul>
-                        <li>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"
-                                fill="none">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M16.0057 2.0083C23.7364 2.0083 30.0058 8.27771 30.0058 16.0084C30.0058 23.7391 23.7364 30.0085 16.0057 30.0085C8.27503 30.0085 2.00562 23.7391 2.00562 16.0084C2.00562 8.27771 8.27503 2.0083 16.0057 2.0083ZM13.0984 20.5557L9.67084 17.1253C9.08691 16.541 9.08679 15.5882 9.67084 15.0041C10.255 14.42 11.2121 14.4237 11.792 15.0041L14.2084 17.4224L20.2196 11.4112C20.8038 10.827 21.7567 10.827 22.3408 11.4112C22.925 11.9952 22.9241 12.9489 22.3408 13.5323L15.2673 20.6058C14.6839 21.1891 13.7302 21.19 13.1461 20.6058C13.1297 20.5894 13.1139 20.5727 13.0984 20.5557Z"
-                                    fill="#78BE20" />
-                            </svg>
-                            Understand deductibles, networks, prescription coverage
-                        </li>
-                        <li>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"
-                                fill="none">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M16.0057 2.0083C23.7364 2.0083 30.0058 8.27771 30.0058 16.0084C30.0058 23.7391 23.7364 30.0085 16.0057 30.0085C8.27503 30.0085 2.00562 23.7391 2.00562 16.0084C2.00562 8.27771 8.27503 2.0083 16.0057 2.0083ZM13.0984 20.5557L9.67084 17.1253C9.08691 16.541 9.08679 15.5882 9.67084 15.0041C10.255 14.42 11.2121 14.4237 11.792 15.0041L14.2084 17.4224L20.2196 11.4112C20.8038 10.827 21.7567 10.827 22.3408 11.4112C22.925 11.9952 22.9241 12.9489 22.3408 13.5323L15.2673 20.6058C14.6839 21.1891 13.7302 21.19 13.1461 20.6058C13.1297 20.5894 13.1139 20.5727 13.0984 20.5557Z"
-                                    fill="#78BE20" />
-                            </svg>
-                            Get plans tailored to your needs and budget
-                        </li>
+                <div class="section first-section">
+                    <div class="first-section-Image">
+                        <img src="{% static 'images/whowehelpsection2.webp' %}" loading="lazy" alt="Who We Help Image">
+                    </div>
+                    <div class="first-section-Test">
+                        <h1>Self-Employed & Small Business</h1>
+                        <p>
+                            The ACA offers real opportunities for savings even for the self-employed.
+                        </p>
+                        <ul>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"
+                                    fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M16.0057 2.0083C23.7364 2.0083 30.0058 8.27771 30.0058 16.0084C30.0058 23.7391 23.7364 30.0085 16.0057 30.0085C8.27503 30.0085 2.00562 23.7391 2.00562 16.0084C2.00562 8.27771 8.27503 2.0083 16.0057 2.0083ZM13.0984 20.5557L9.67084 17.1253C9.08691 16.541 9.08679 15.5882 9.67084 15.0041C10.255 14.42 11.2121 14.4237 11.792 15.0041L14.2084 17.4224L20.2196 11.4112C20.8038 10.827 21.7567 10.827 22.3408 11.4112C22.925 11.9952 22.9241 12.9489 22.3408 13.5323L15.2673 20.6058C14.6839 21.1891 13.7302 21.19 13.1461 20.6058C13.1297 20.5894 13.1139 20.5727 13.0984 20.5557Z"
+                                        fill="#78BE20" />
+                                </svg>
+                                Save up to 50% with tax credits
+                            </li>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"
+                                    fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M16.0057 2.0083C23.7364 2.0083 30.0058 8.27771 30.0058 16.0084C30.0058 23.7391 23.7364 30.0085 16.0057 30.0085C8.27503 30.0085 2.00562 23.7391 2.00562 16.0084C2.00562 8.27771 8.27503 2.0083 16.0057 2.0083ZM13.0984 20.5557L9.67084 17.1253C9.08691 16.541 9.08679 15.5882 9.67084 15.0041C10.255 14.42 11.2121 14.4237 11.792 15.0041L14.2084 17.4224L20.2196 11.4112C20.8038 10.827 21.7567 10.827 22.3408 11.4112C22.925 11.9952 22.9241 12.9489 22.3408 13.5323L15.2673 20.6058C14.6839 21.1891 13.7302 21.19 13.1461 20.6058C13.1297 20.5894 13.1139 20.5727 13.0984 20.5557Z"
+                                        fill="#78BE20" />
+                                </svg>
+                                Plans that match your lifestyle
+                            </li>
 
-                        <li>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"
-                                fill="none">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M16.0057 2.0083C23.7364 2.0083 30.0058 8.27771 30.0058 16.0084C30.0058 23.7391 23.7364 30.0085 16.0057 30.0085C8.27503 30.0085 2.00562 23.7391 2.00562 16.0084C2.00562 8.27771 8.27503 2.0083 16.0057 2.0083ZM13.0984 20.5557L9.67084 17.1253C9.08691 16.541 9.08679 15.5882 9.67084 15.0041C10.255 14.42 11.2121 14.4237 11.792 15.0041L14.2084 17.4224L20.2196 11.4112C20.8038 10.827 21.7567 10.827 22.3408 11.4112C22.925 11.9952 22.9241 12.9489 22.3408 13.5323L15.2673 20.6058C14.6839 21.1891 13.7302 21.19 13.1461 20.6058C13.1297 20.5894 13.1139 20.5727 13.0984 20.5557Z"
-                                    fill="#78BE20" />
-                            </svg>
-                            Protection from excessive hospital bills
-                        </li>
-                        <li>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"
-                                fill="none">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M16.0057 2.0083C23.7364 2.0083 30.0058 8.27771 30.0058 16.0084C30.0058 23.7391 23.7364 30.0085 16.0057 30.0085C8.27503 30.0085 2.00562 23.7391 2.00562 16.0084C2.00562 8.27771 8.27503 2.0083 16.0057 2.0083ZM13.0984 20.5557L9.67084 17.1253C9.08691 16.541 9.08679 15.5882 9.67084 15.0041C10.255 14.42 11.2121 14.4237 11.792 15.0041L14.2084 17.4224L20.2196 11.4112C20.8038 10.827 21.7567 10.827 22.3408 11.4112C22.925 11.9952 22.9241 12.9489 22.3408 13.5323L15.2673 20.6058C14.6839 21.1891 13.7302 21.19 13.1461 20.6058C13.1297 20.5894 13.1139 20.5727 13.0984 20.5557Z"
-                                    fill="#78BE20" />
-                            </svg>
-                            Manageable monthly payments
-                        </li>
-                    </ul>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"
+                                    fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M16.0057 2.0083C23.7364 2.0083 30.0058 8.27771 30.0058 16.0084C30.0058 23.7391 23.7364 30.0085 16.0057 30.0085C8.27503 30.0085 2.00562 23.7391 2.00562 16.0084C2.00562 8.27771 8.27503 2.0083 16.0057 2.0083ZM13.0984 20.5557L9.67084 17.1253C9.08691 16.541 9.08679 15.5882 9.67084 15.0041C10.255 14.42 11.2121 14.4237 11.792 15.0041L14.2084 17.4224L20.2196 11.4112C20.8038 10.827 21.7567 10.827 22.3408 11.4112C22.925 11.9952 22.9241 12.9489 22.3408 13.5323L15.2673 20.6058C14.6839 21.1891 13.7302 21.19 13.1461 20.6058C13.1297 20.5894 13.1139 20.5727 13.0984 20.5557Z"
+                                        fill="#78BE20" />
+                                </svg>
+                                Simple eligibility decoding
+                            </li>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"
+                                    fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M16.0057 2.0083C23.7364 2.0083 30.0058 8.27771 30.0058 16.0084C30.0058 23.7391 23.7364 30.0085 16.0057 30.0085C8.27503 30.0085 2.00562 23.7391 2.00562 16.0084C2.00562 8.27771 8.27503 2.0083 16.0057 2.0083ZM13.0984 20.5557L9.67084 17.1253C9.08691 16.541 9.08679 15.5882 9.67084 15.0041C10.255 14.42 11.2121 14.4237 11.792 15.0041L14.2084 17.4224L20.2196 11.4112C20.8038 10.827 21.7567 10.827 22.3408 11.4112C22.925 11.9952 22.9241 12.9489 22.3408 13.5323L15.2673 20.6058C14.6839 21.1891 13.7302 21.19 13.1461 20.6058C13.1297 20.5894 13.1139 20.5727 13.0984 20.5557Z"
+                                        fill="#78BE20" />
+                                </svg>
+                                Steady payments & real-world savings
+                            </li>
+                        </ul>
 
-                    <button class="WhoWeHelpButton">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path
-                                d="M14.6667 11.2802V13.2802C14.6675 13.4659 14.6294 13.6497 14.555 13.8198C14.4807 13.9899 14.3716 14.1426 14.2348 14.2681C14.0979 14.3937 13.9364 14.4892 13.7605 14.5487C13.5847 14.6082 13.3983 14.6303 13.2134 14.6136C11.1619 14.3907 9.19137 13.6897 7.46004 12.5669C5.84926 11.5433 4.48359 10.1777 3.46004 8.56689C2.33336 6.8277 1.6322 4.84756 1.41337 2.78689C1.39671 2.60254 1.41862 2.41673 1.4777 2.24131C1.53679 2.06589 1.63175 1.90469 1.75655 1.76797C1.88134 1.63126 2.03324 1.52203 2.20256 1.44724C2.37189 1.37245 2.55493 1.33374 2.74004 1.33356H4.74004C5.06357 1.33038 5.37723 1.44495 5.62254 1.65592C5.86786 1.86689 6.02809 2.15986 6.07337 2.48023C6.15779 3.12027 6.31434 3.74871 6.54004 4.35356C6.62973 4.59218 6.64915 4.8515 6.59597 5.10081C6.5428 5.35012 6.41928 5.57897 6.24004 5.76023L5.39337 6.60689C6.34241 8.27592 7.72434 9.65786 9.39337 10.6069L10.24 9.76023C10.4213 9.58099 10.6501 9.45746 10.8994 9.40429C11.1488 9.35112 11.4081 9.37053 11.6467 9.46023C12.2516 9.68593 12.88 9.84248 13.52 9.92689C13.8439 9.97258 14.1396 10.1357 14.3511 10.3852C14.5625 10.6348 14.6748 10.9533 14.6667 11.2802Z"
-                                stroke="#073B89" stroke-width="1.33333" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                        Get Coverage for My Family
-                    </button>
-                    <p class="WhoWeHelpButtonLastText">No obligation, quick and easy process.</p>
+                        <button class="WhoWeHelpButton">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
+                                fill="none">
+                                <path
+                                    d="M14.6667 11.2802V13.2802C14.6675 13.4659 14.6294 13.6497 14.555 13.8198C14.4807 13.9899 14.3716 14.1426 14.2348 14.2681C14.0979 14.3937 13.9364 14.4892 13.7605 14.5487C13.5847 14.6082 13.3983 14.6303 13.2134 14.6136C11.1619 14.3907 9.19137 13.6897 7.46004 12.5669C5.84926 11.5433 4.48359 10.1777 3.46004 8.56689C2.33336 6.8277 1.6322 4.84756 1.41337 2.78689C1.39671 2.60254 1.41862 2.41673 1.4777 2.24131C1.53679 2.06589 1.63175 1.90469 1.75655 1.76797C1.88134 1.63126 2.03324 1.52203 2.20256 1.44724C2.37189 1.37245 2.55493 1.33374 2.74004 1.33356H4.74004C5.06357 1.33038 5.37723 1.44495 5.62254 1.65592C5.86786 1.86689 6.02809 2.15986 6.07337 2.48023C6.15779 3.12027 6.31434 3.74871 6.54004 4.35356C6.62973 4.59218 6.64915 4.8515 6.59597 5.10081C6.5428 5.35012 6.41928 5.57897 6.24004 5.76023L5.39337 6.60689C6.34241 8.27592 7.72434 9.65786 9.39337 10.6069L10.24 9.76023C10.4213 9.58099 10.6501 9.45746 10.8994 9.40429C11.1488 9.35112 11.4081 9.37053 11.6467 9.46023C12.2516 9.68593 12.88 9.84248 13.52 9.92689C13.8439 9.97258 14.1396 10.1357 14.3511 10.3852C14.5625 10.6348 14.6748 10.9533 14.6667 11.2802Z"
+                                    stroke="#073B89" stroke-width="1.33333" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                            Get Coverage for My Family
+                        </button>
+                        <p class="WhoWeHelpButtonLastText">No obligation, quick and easy process.</p>
+                    </div>
                 </div>
-
             </div>
             <!-- 
             <div class="section second-section hidden">
@@ -505,13 +573,13 @@
 </div>
 <div class="ACAHealthInsurance">
     <div class="container">
-        <h1 class="ACAHealthInsuranceTitel">ACA Health Insurance Plans </h1>
-        <p class="ACAHealthInsuranceText">
+        <h1 class="ACAHealthInsuranceTitel" data-aos="fade-up">ACA Health Insurance Plans </h1>
+        <p class="ACAHealthInsuranceText" data-aos="fade-up">
             Policy Bear guides you through informing the right time and way of Enrollment in the ACA Marketplace, where
             your income, ZIP code, and age all impact your plan options, pricing, and savings.
         </p>
         <div class="ACAHealthInsuranceCardWaper">
-            <div class="ACAHealthInsuranceCard">
+            <div class="ACAHealthInsuranceCard" data-aos="fade-up">
                 <div class="ACAHealthInsuranceCardHead BronzePlan">
                     <svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54" fill="none">
                         <rect width="54" height="54" rx="27" fill="white" />
@@ -529,7 +597,7 @@
                     doctor.
                 </div>
             </div>
-            <div class="ACAHealthInsuranceCard">
+            <div class="ACAHealthInsuranceCard" data-aos="fade-up">
                 <div class="ACAHealthInsuranceCardHead SilverPlan">
                     <svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54" fill="none">
                         <rect width="54" height="54" rx="27" fill="#0033A0" />
@@ -550,7 +618,7 @@
                     savings on copays and deductibles.
                 </div>
             </div>
-            <div class="ACAHealthInsuranceCard">
+            <div class="ACAHealthInsuranceCard" data-aos="fade-up">
                 <div class="ACAHealthInsuranceCardHead GoldPlan">
                     <svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54" fill="none">
                         <rect width="54" height="54" rx="27" fill="#0033A0" />
@@ -574,7 +642,7 @@
                     manage ongoing health needs.
                 </div>
             </div>
-            <div class="ACAHealthInsuranceCard">
+            <div class="ACAHealthInsuranceCard" data-aos="fade-up">
                 <div class="ACAHealthInsuranceCardHead PlatinumPlan">
                     <svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54" fill="none">
                         <rect width="54" height="54" rx="27" fill="#0033A0" />
@@ -603,9 +671,9 @@
             </div>
         </div>
         <div class="ACAHealthInsuranceCardButtonWaper">
-            <p class="ACAHealthInsuranceCardButtonText">Not sure where to start?</p>
-            <a href="#">
-                <button class="ACAHealthInsuranceCardButton">
+            <p class="ACAHealthInsuranceCardButtonText" data-aos="fade-up">Not sure where to start?</p>
+            <a href="{% url 'affordable-health-insurance' %}">
+                <button class="ACAHealthInsuranceCardButton" data-aos="flip-right">
                     Compare All ACA Plans
                 </button>
             </a>
@@ -627,7 +695,7 @@
     <img src="{% static 'images/watermark.webp' %}" loading="lazy" alt="Explore Your Insurance"
         class="ExploreYourInsuranceImage">
     <div class="container">
-        <div class="ExploreYourInsuranceWaper">
+        <div class="ExploreYourInsuranceWaper" data-aos="zoom-in">
             <h1 class="ExploreYourInsuranceTitel">Explore Your Insurance Options</h1>
             <p class="ExploreYourInsuranceText">
                 Policy Bear guides you through informing the right time and way of Enrollment in the ACA Marketplace,
@@ -686,12 +754,12 @@
                         </li>
                     </ul>
                     <div class="ExploreYourInsuranceCardButtonWaper">
-                        <a href="#">
+                        <a href="{% url 'affordable-health-insurance' %}">
                             <button class="ExploreYourInsuranceCardButtonOne">
                                 Check ACA Plans
                             </button>
                         </a>
-                        <a href="#">
+                        <a href="{% url 'affordable-health-insurance' %}">
                             <button class="ExploreYourInsuranceCardButtonTow">
                                 Learn More
                             </button>
@@ -750,12 +818,12 @@
                         </li>
                     </ul>
                     <div class="ExploreYourInsuranceCardButtonWaper">
-                        <a href="#">
+                        <a href="{% url 'supplement-insurance' %}">
                             <button class="ExploreYourInsuranceCardButtonOne">
                                 Explore Dental & Vision Plans
                             </button>
                         </a>
-                        <a href="#">
+                        <a href="{% url 'supplement-insurance' %}">
                             <button class="ExploreYourInsuranceCardButtonTow">
                                 Learn More
                             </button>
@@ -768,7 +836,7 @@
 </div>
 <div class="ReviewSection">
     <div class="container">
-        <div class="ReviewSectionWaper">
+        <div class="ReviewSectionWaper" data-aos="zoom-in">
             <img src="{% static 'images/Review1.webp' %}" loading="lazy" alt="Review Section"
                 class="ReviewSectionImage">
             <img src="{% static 'images/Review2.webp' %}" loading="lazy" alt="Review Section"
@@ -783,10 +851,10 @@
 <div class="WhatOurClientsSay">
     <div class="container">
         <div class="WhatOurClientsSayWaper">
-            <h1 class="WhatOurClientsSayTitel">What Our Clients Say</h1>
-            <p class="WhatOurClientsSayText">Real stories from real people who found affordable health insurance with
+            <h1 class="WhatOurClientsSayTitel" data-aos="fade-up">What Our Clients Say</h1>
+            <p class="WhatOurClientsSayText" data-aos="fade-up">Real stories from real people who found affordable health insurance with
                 Policy Bear.</p>
-            <div class="WhatOurClientsSayCardWaper">
+            <div class="WhatOurClientsSayCardWaper" data-aos="fade-up">
                 <div class="WhatOurClientsSayCard">
                     <div class="WhatOurClientsSayCardIcon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
@@ -1022,237 +1090,252 @@
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <div class="WhatOurClientsSayCard">
-                    <div class="WhatOurClientsSayCardIcon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                            <g clip-path="url(#clip0_5869_5340)">
-                                <path
-                                    d="M17.5224 6.4378L11.9889 5.59255L9.50861 0.309547C9.32337 -0.0849532 8.67611 -0.0849532 8.49086 0.309547L6.01136 5.59255L0.477862 6.4378C0.0233619 6.50755 -0.158138 7.0603 0.160612 7.38655L4.18061 11.5071L3.23036 17.3323C3.15461 17.7951 3.64886 18.1423 4.05761 17.9151L9.00011 15.1836L13.9426 17.9158C14.3476 18.1408 14.8464 17.8003 14.7699 17.3331L13.8196 11.5078L17.8396 7.3873C18.1584 7.0603 17.9761 6.50755 17.5224 6.4378Z"
-                                    fill="#FFC107" />
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_5869_5340">
-                                    <rect width="18" height="18" fill="white" />
-                                </clipPath>
-                            </defs>
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                            <g clip-path="url(#clip0_5869_5340)">
-                                <path
-                                    d="M17.5224 6.4378L11.9889 5.59255L9.50861 0.309547C9.32337 -0.0849532 8.67611 -0.0849532 8.49086 0.309547L6.01136 5.59255L0.477862 6.4378C0.0233619 6.50755 -0.158138 7.0603 0.160612 7.38655L4.18061 11.5071L3.23036 17.3323C3.15461 17.7951 3.64886 18.1423 4.05761 17.9151L9.00011 15.1836L13.9426 17.9158C14.3476 18.1408 14.8464 17.8003 14.7699 17.3331L13.8196 11.5078L17.8396 7.3873C18.1584 7.0603 17.9761 6.50755 17.5224 6.4378Z"
-                                    fill="#FFC107" />
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_5869_5340">
-                                    <rect width="18" height="18" fill="white" />
-                                </clipPath>
-                            </defs>
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                            <g clip-path="url(#clip0_5869_5340)">
-                                <path
-                                    d="M17.5224 6.4378L11.9889 5.59255L9.50861 0.309547C9.32337 -0.0849532 8.67611 -0.0849532 8.49086 0.309547L6.01136 5.59255L0.477862 6.4378C0.0233619 6.50755 -0.158138 7.0603 0.160612 7.38655L4.18061 11.5071L3.23036 17.3323C3.15461 17.7951 3.64886 18.1423 4.05761 17.9151L9.00011 15.1836L13.9426 17.9158C14.3476 18.1408 14.8464 17.8003 14.7699 17.3331L13.8196 11.5078L17.8396 7.3873C18.1584 7.0603 17.9761 6.50755 17.5224 6.4378Z"
-                                    fill="#FFC107" />
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_5869_5340">
-                                    <rect width="18" height="18" fill="white" />
-                                </clipPath>
-                            </defs>
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                            <g clip-path="url(#clip0_5869_5340)">
-                                <path
-                                    d="M17.5224 6.4378L11.9889 5.59255L9.50861 0.309547C9.32337 -0.0849532 8.67611 -0.0849532 8.49086 0.309547L6.01136 5.59255L0.477862 6.4378C0.0233619 6.50755 -0.158138 7.0603 0.160612 7.38655L4.18061 11.5071L3.23036 17.3323C3.15461 17.7951 3.64886 18.1423 4.05761 17.9151L9.00011 15.1836L13.9426 17.9158C14.3476 18.1408 14.8464 17.8003 14.7699 17.3331L13.8196 11.5078L17.8396 7.3873C18.1584 7.0603 17.9761 6.50755 17.5224 6.4378Z"
-                                    fill="#FFC107" />
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_5869_5340">
-                                    <rect width="18" height="18" fill="white" />
-                                </clipPath>
-                            </defs>
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                            <g clip-path="url(#clip0_5869_5340)">
-                                <path
-                                    d="M17.5224 6.4378L11.9889 5.59255L9.50861 0.309547C9.32337 -0.0849532 8.67611 -0.0849532 8.49086 0.309547L6.01136 5.59255L0.477862 6.4378C0.0233619 6.50755 -0.158138 7.0603 0.160612 7.38655L4.18061 11.5071L3.23036 17.3323C3.15461 17.7951 3.64886 18.1423 4.05761 17.9151L9.00011 15.1836L13.9426 17.9158C14.3476 18.1408 14.8464 17.8003 14.7699 17.3331L13.8196 11.5078L17.8396 7.3873C18.1584 7.0603 17.9761 6.50755 17.5224 6.4378Z"
-                                    fill="#FFC107" />
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_5869_5340">
-                                    <rect width="18" height="18" fill="white" />
-                                </clipPath>
-                            </defs>
-                        </svg>
-                    </div>
-                    <p class="WhatOurClientsSayCardText">
-                        “Policy Bear helped me find an affordable plan that covers my
-                        family's needs without breaking the bank.”
-                    </p>
-                    <div class="WhatOurClientsSayCardImageNAme">
-                        <img src="{% static 'images/clint.webp' %}" loading="lazy" alt="Client Image"
-                            class="WhatOurClientsSayCardImage">
-                        <div class="WhatOurClientsSayCardNameWaper">
-                            <h1 class="WhatOurClientsSayCardName">Sarah Mitchell</h1>
-                            <p class="WhatOurClientsSayCardNameText">Small Business Owner</p>
-                        </div>
-                    </div>
-                </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="WhatOurClientsSayCard">
-                    <div class="WhatOurClientsSayCardIcon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                            <g clip-path="url(#clip0_5869_5340)">
-                                <path
-                                    d="M17.5224 6.4378L11.9889 5.59255L9.50861 0.309547C9.32337 -0.0849532 8.67611 -0.0849532 8.49086 0.309547L6.01136 5.59255L0.477862 6.4378C0.0233619 6.50755 -0.158138 7.0603 0.160612 7.38655L4.18061 11.5071L3.23036 17.3323C3.15461 17.7951 3.64886 18.1423 4.05761 17.9151L9.00011 15.1836L13.9426 17.9158C14.3476 18.1408 14.8464 17.8003 14.7699 17.3331L13.8196 11.5078L17.8396 7.3873C18.1584 7.0603 17.9761 6.50755 17.5224 6.4378Z"
-                                    fill="#FFC107" />
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_5869_5340">
-                                    <rect width="18" height="18" fill="white" />
-                                </clipPath>
-                            </defs>
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                            <g clip-path="url(#clip0_5869_5340)">
-                                <path
-                                    d="M17.5224 6.4378L11.9889 5.59255L9.50861 0.309547C9.32337 -0.0849532 8.67611 -0.0849532 8.49086 0.309547L6.01136 5.59255L0.477862 6.4378C0.0233619 6.50755 -0.158138 7.0603 0.160612 7.38655L4.18061 11.5071L3.23036 17.3323C3.15461 17.7951 3.64886 18.1423 4.05761 17.9151L9.00011 15.1836L13.9426 17.9158C14.3476 18.1408 14.8464 17.8003 14.7699 17.3331L13.8196 11.5078L17.8396 7.3873C18.1584 7.0603 17.9761 6.50755 17.5224 6.4378Z"
-                                    fill="#FFC107" />
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_5869_5340">
-                                    <rect width="18" height="18" fill="white" />
-                                </clipPath>
-                            </defs>
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                            <g clip-path="url(#clip0_5869_5340)">
-                                <path
-                                    d="M17.5224 6.4378L11.9889 5.59255L9.50861 0.309547C9.32337 -0.0849532 8.67611 -0.0849532 8.49086 0.309547L6.01136 5.59255L0.477862 6.4378C0.0233619 6.50755 -0.158138 7.0603 0.160612 7.38655L4.18061 11.5071L3.23036 17.3323C3.15461 17.7951 3.64886 18.1423 4.05761 17.9151L9.00011 15.1836L13.9426 17.9158C14.3476 18.1408 14.8464 17.8003 14.7699 17.3331L13.8196 11.5078L17.8396 7.3873C18.1584 7.0603 17.9761 6.50755 17.5224 6.4378Z"
-                                    fill="#FFC107" />
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_5869_5340">
-                                    <rect width="18" height="18" fill="white" />
-                                </clipPath>
-                            </defs>
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                            <g clip-path="url(#clip0_5869_5340)">
-                                <path
-                                    d="M17.5224 6.4378L11.9889 5.59255L9.50861 0.309547C9.32337 -0.0849532 8.67611 -0.0849532 8.49086 0.309547L6.01136 5.59255L0.477862 6.4378C0.0233619 6.50755 -0.158138 7.0603 0.160612 7.38655L4.18061 11.5071L3.23036 17.3323C3.15461 17.7951 3.64886 18.1423 4.05761 17.9151L9.00011 15.1836L13.9426 17.9158C14.3476 18.1408 14.8464 17.8003 14.7699 17.3331L13.8196 11.5078L17.8396 7.3873C18.1584 7.0603 17.9761 6.50755 17.5224 6.4378Z"
-                                    fill="#FFC107" />
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_5869_5340">
-                                    <rect width="18" height="18" fill="white" />
-                                </clipPath>
-                            </defs>
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                            <g clip-path="url(#clip0_5869_5340)">
-                                <path
-                                    d="M17.5224 6.4378L11.9889 5.59255L9.50861 0.309547C9.32337 -0.0849532 8.67611 -0.0849532 8.49086 0.309547L6.01136 5.59255L0.477862 6.4378C0.0233619 6.50755 -0.158138 7.0603 0.160612 7.38655L4.18061 11.5071L3.23036 17.3323C3.15461 17.7951 3.64886 18.1423 4.05761 17.9151L9.00011 15.1836L13.9426 17.9158C14.3476 18.1408 14.8464 17.8003 14.7699 17.3331L13.8196 11.5078L17.8396 7.3873C18.1584 7.0603 17.9761 6.50755 17.5224 6.4378Z"
-                                    fill="#FFC107" />
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_5869_5340">
-                                    <rect width="18" height="18" fill="white" />
-                                </clipPath>
-                            </defs>
-                        </svg>
-                    </div>
-                    <p class="WhatOurClientsSayCardText">
-                        “Policy Bear helped me find an affordable plan that covers my
-                        family's needs without breaking the bank.”
-                    </p>
-                    <div class="WhatOurClientsSayCardImageNAme">
-                        <img src="{% static 'images/clint.webp' %}" loading="lazy" alt="Client Image"
-                            class="WhatOurClientsSayCardImage">
-                        <div class="WhatOurClientsSayCardNameWaper">
-                            <h1 class="WhatOurClientsSayCardName">Sarah Mitchell</h1>
-                            <p class="WhatOurClientsSayCardNameText">Small Business Owner</p>
-                        </div>
-                    </div>
-                </div>
+                                <div class="WhatOurClientsSayCardIcon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
+                                        fill="none">
+                                        <g clip-path="url(#clip0_5869_5340)">
+                                            <path
+                                                d="M17.5224 6.4378L11.9889 5.59255L9.50861 0.309547C9.32337 -0.0849532 8.67611 -0.0849532 8.49086 0.309547L6.01136 5.59255L0.477862 6.4378C0.0233619 6.50755 -0.158138 7.0603 0.160612 7.38655L4.18061 11.5071L3.23036 17.3323C3.15461 17.7951 3.64886 18.1423 4.05761 17.9151L9.00011 15.1836L13.9426 17.9158C14.3476 18.1408 14.8464 17.8003 14.7699 17.3331L13.8196 11.5078L17.8396 7.3873C18.1584 7.0603 17.9761 6.50755 17.5224 6.4378Z"
+                                                fill="#FFC107" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_5869_5340">
+                                                <rect width="18" height="18" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
+                                        fill="none">
+                                        <g clip-path="url(#clip0_5869_5340)">
+                                            <path
+                                                d="M17.5224 6.4378L11.9889 5.59255L9.50861 0.309547C9.32337 -0.0849532 8.67611 -0.0849532 8.49086 0.309547L6.01136 5.59255L0.477862 6.4378C0.0233619 6.50755 -0.158138 7.0603 0.160612 7.38655L4.18061 11.5071L3.23036 17.3323C3.15461 17.7951 3.64886 18.1423 4.05761 17.9151L9.00011 15.1836L13.9426 17.9158C14.3476 18.1408 14.8464 17.8003 14.7699 17.3331L13.8196 11.5078L17.8396 7.3873C18.1584 7.0603 17.9761 6.50755 17.5224 6.4378Z"
+                                                fill="#FFC107" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_5869_5340">
+                                                <rect width="18" height="18" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
+                                        fill="none">
+                                        <g clip-path="url(#clip0_5869_5340)">
+                                            <path
+                                                d="M17.5224 6.4378L11.9889 5.59255L9.50861 0.309547C9.32337 -0.0849532 8.67611 -0.0849532 8.49086 0.309547L6.01136 5.59255L0.477862 6.4378C0.0233619 6.50755 -0.158138 7.0603 0.160612 7.38655L4.18061 11.5071L3.23036 17.3323C3.15461 17.7951 3.64886 18.1423 4.05761 17.9151L9.00011 15.1836L13.9426 17.9158C14.3476 18.1408 14.8464 17.8003 14.7699 17.3331L13.8196 11.5078L17.8396 7.3873C18.1584 7.0603 17.9761 6.50755 17.5224 6.4378Z"
+                                                fill="#FFC107" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_5869_5340">
+                                                <rect width="18" height="18" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
+                                        fill="none">
+                                        <g clip-path="url(#clip0_5869_5340)">
+                                            <path
+                                                d="M17.5224 6.4378L11.9889 5.59255L9.50861 0.309547C9.32337 -0.0849532 8.67611 -0.0849532 8.49086 0.309547L6.01136 5.59255L0.477862 6.4378C0.0233619 6.50755 -0.158138 7.0603 0.160612 7.38655L4.18061 11.5071L3.23036 17.3323C3.15461 17.7951 3.64886 18.1423 4.05761 17.9151L9.00011 15.1836L13.9426 17.9158C14.3476 18.1408 14.8464 17.8003 14.7699 17.3331L13.8196 11.5078L17.8396 7.3873C18.1584 7.0603 17.9761 6.50755 17.5224 6.4378Z"
+                                                fill="#FFC107" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_5869_5340">
+                                                <rect width="18" height="18" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
+                                        fill="none">
+                                        <g clip-path="url(#clip0_5869_5340)">
+                                            <path
+                                                d="M17.5224 6.4378L11.9889 5.59255L9.50861 0.309547C9.32337 -0.0849532 8.67611 -0.0849532 8.49086 0.309547L6.01136 5.59255L0.477862 6.4378C0.0233619 6.50755 -0.158138 7.0603 0.160612 7.38655L4.18061 11.5071L3.23036 17.3323C3.15461 17.7951 3.64886 18.1423 4.05761 17.9151L9.00011 15.1836L13.9426 17.9158C14.3476 18.1408 14.8464 17.8003 14.7699 17.3331L13.8196 11.5078L17.8396 7.3873C18.1584 7.0603 17.9761 6.50755 17.5224 6.4378Z"
+                                                fill="#FFC107" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_5869_5340">
+                                                <rect width="18" height="18" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <p class="WhatOurClientsSayCardText">
+                                    “Policy Bear helped me find an affordable plan that covers my
+                                    family's needs without breaking the bank.”
+                                </p>
+                                <div class="WhatOurClientsSayCardImageNAme">
+                                    <img src="{% static 'images/clint.webp' %}" loading="lazy" alt="Client Image"
+                                        class="WhatOurClientsSayCardImage">
+                                    <div class="WhatOurClientsSayCardNameWaper">
+                                        <h1 class="WhatOurClientsSayCardName">Sarah Mitchell</h1>
+                                        <p class="WhatOurClientsSayCardNameText">Small Business Owner</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="carousel-item">
                             <div class="WhatOurClientsSayCard">
-                    <div class="WhatOurClientsSayCardIcon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                            <g clip-path="url(#clip0_5869_5340)">
-                                <path
-                                    d="M17.5224 6.4378L11.9889 5.59255L9.50861 0.309547C9.32337 -0.0849532 8.67611 -0.0849532 8.49086 0.309547L6.01136 5.59255L0.477862 6.4378C0.0233619 6.50755 -0.158138 7.0603 0.160612 7.38655L4.18061 11.5071L3.23036 17.3323C3.15461 17.7951 3.64886 18.1423 4.05761 17.9151L9.00011 15.1836L13.9426 17.9158C14.3476 18.1408 14.8464 17.8003 14.7699 17.3331L13.8196 11.5078L17.8396 7.3873C18.1584 7.0603 17.9761 6.50755 17.5224 6.4378Z"
-                                    fill="#FFC107" />
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_5869_5340">
-                                    <rect width="18" height="18" fill="white" />
-                                </clipPath>
-                            </defs>
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                            <g clip-path="url(#clip0_5869_5340)">
-                                <path
-                                    d="M17.5224 6.4378L11.9889 5.59255L9.50861 0.309547C9.32337 -0.0849532 8.67611 -0.0849532 8.49086 0.309547L6.01136 5.59255L0.477862 6.4378C0.0233619 6.50755 -0.158138 7.0603 0.160612 7.38655L4.18061 11.5071L3.23036 17.3323C3.15461 17.7951 3.64886 18.1423 4.05761 17.9151L9.00011 15.1836L13.9426 17.9158C14.3476 18.1408 14.8464 17.8003 14.7699 17.3331L13.8196 11.5078L17.8396 7.3873C18.1584 7.0603 17.9761 6.50755 17.5224 6.4378Z"
-                                    fill="#FFC107" />
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_5869_5340">
-                                    <rect width="18" height="18" fill="white" />
-                                </clipPath>
-                            </defs>
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                            <g clip-path="url(#clip0_5869_5340)">
-                                <path
-                                    d="M17.5224 6.4378L11.9889 5.59255L9.50861 0.309547C9.32337 -0.0849532 8.67611 -0.0849532 8.49086 0.309547L6.01136 5.59255L0.477862 6.4378C0.0233619 6.50755 -0.158138 7.0603 0.160612 7.38655L4.18061 11.5071L3.23036 17.3323C3.15461 17.7951 3.64886 18.1423 4.05761 17.9151L9.00011 15.1836L13.9426 17.9158C14.3476 18.1408 14.8464 17.8003 14.7699 17.3331L13.8196 11.5078L17.8396 7.3873C18.1584 7.0603 17.9761 6.50755 17.5224 6.4378Z"
-                                    fill="#FFC107" />
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_5869_5340">
-                                    <rect width="18" height="18" fill="white" />
-                                </clipPath>
-                            </defs>
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                            <g clip-path="url(#clip0_5869_5340)">
-                                <path
-                                    d="M17.5224 6.4378L11.9889 5.59255L9.50861 0.309547C9.32337 -0.0849532 8.67611 -0.0849532 8.49086 0.309547L6.01136 5.59255L0.477862 6.4378C0.0233619 6.50755 -0.158138 7.0603 0.160612 7.38655L4.18061 11.5071L3.23036 17.3323C3.15461 17.7951 3.64886 18.1423 4.05761 17.9151L9.00011 15.1836L13.9426 17.9158C14.3476 18.1408 14.8464 17.8003 14.7699 17.3331L13.8196 11.5078L17.8396 7.3873C18.1584 7.0603 17.9761 6.50755 17.5224 6.4378Z"
-                                    fill="#FFC107" />
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_5869_5340">
-                                    <rect width="18" height="18" fill="white" />
-                                </clipPath>
-                            </defs>
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                            <g clip-path="url(#clip0_5869_5340)">
-                                <path
-                                    d="M17.5224 6.4378L11.9889 5.59255L9.50861 0.309547C9.32337 -0.0849532 8.67611 -0.0849532 8.49086 0.309547L6.01136 5.59255L0.477862 6.4378C0.0233619 6.50755 -0.158138 7.0603 0.160612 7.38655L4.18061 11.5071L3.23036 17.3323C3.15461 17.7951 3.64886 18.1423 4.05761 17.9151L9.00011 15.1836L13.9426 17.9158C14.3476 18.1408 14.8464 17.8003 14.7699 17.3331L13.8196 11.5078L17.8396 7.3873C18.1584 7.0603 17.9761 6.50755 17.5224 6.4378Z"
-                                    fill="#FFC107" />
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_5869_5340">
-                                    <rect width="18" height="18" fill="white" />
-                                </clipPath>
-                            </defs>
-                        </svg>
-                    </div>
-                    <p class="WhatOurClientsSayCardText">
-                        “Policy Bear helped me find an affordable plan that covers my
-                        family's needs without breaking the bank.”
-                    </p>
-                    <div class="WhatOurClientsSayCardImageNAme">
-                        <img src="{% static 'images/clint.webp' %}" loading="lazy" alt="Client Image"
-                            class="WhatOurClientsSayCardImage">
-                        <div class="WhatOurClientsSayCardNameWaper">
-                            <h1 class="WhatOurClientsSayCardName">Sarah Mitchell</h1>
-                            <p class="WhatOurClientsSayCardNameText">Small Business Owner</p>
+                                <div class="WhatOurClientsSayCardIcon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
+                                        fill="none">
+                                        <g clip-path="url(#clip0_5869_5340)">
+                                            <path
+                                                d="M17.5224 6.4378L11.9889 5.59255L9.50861 0.309547C9.32337 -0.0849532 8.67611 -0.0849532 8.49086 0.309547L6.01136 5.59255L0.477862 6.4378C0.0233619 6.50755 -0.158138 7.0603 0.160612 7.38655L4.18061 11.5071L3.23036 17.3323C3.15461 17.7951 3.64886 18.1423 4.05761 17.9151L9.00011 15.1836L13.9426 17.9158C14.3476 18.1408 14.8464 17.8003 14.7699 17.3331L13.8196 11.5078L17.8396 7.3873C18.1584 7.0603 17.9761 6.50755 17.5224 6.4378Z"
+                                                fill="#FFC107" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_5869_5340">
+                                                <rect width="18" height="18" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
+                                        fill="none">
+                                        <g clip-path="url(#clip0_5869_5340)">
+                                            <path
+                                                d="M17.5224 6.4378L11.9889 5.59255L9.50861 0.309547C9.32337 -0.0849532 8.67611 -0.0849532 8.49086 0.309547L6.01136 5.59255L0.477862 6.4378C0.0233619 6.50755 -0.158138 7.0603 0.160612 7.38655L4.18061 11.5071L3.23036 17.3323C3.15461 17.7951 3.64886 18.1423 4.05761 17.9151L9.00011 15.1836L13.9426 17.9158C14.3476 18.1408 14.8464 17.8003 14.7699 17.3331L13.8196 11.5078L17.8396 7.3873C18.1584 7.0603 17.9761 6.50755 17.5224 6.4378Z"
+                                                fill="#FFC107" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_5869_5340">
+                                                <rect width="18" height="18" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
+                                        fill="none">
+                                        <g clip-path="url(#clip0_5869_5340)">
+                                            <path
+                                                d="M17.5224 6.4378L11.9889 5.59255L9.50861 0.309547C9.32337 -0.0849532 8.67611 -0.0849532 8.49086 0.309547L6.01136 5.59255L0.477862 6.4378C0.0233619 6.50755 -0.158138 7.0603 0.160612 7.38655L4.18061 11.5071L3.23036 17.3323C3.15461 17.7951 3.64886 18.1423 4.05761 17.9151L9.00011 15.1836L13.9426 17.9158C14.3476 18.1408 14.8464 17.8003 14.7699 17.3331L13.8196 11.5078L17.8396 7.3873C18.1584 7.0603 17.9761 6.50755 17.5224 6.4378Z"
+                                                fill="#FFC107" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_5869_5340">
+                                                <rect width="18" height="18" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
+                                        fill="none">
+                                        <g clip-path="url(#clip0_5869_5340)">
+                                            <path
+                                                d="M17.5224 6.4378L11.9889 5.59255L9.50861 0.309547C9.32337 -0.0849532 8.67611 -0.0849532 8.49086 0.309547L6.01136 5.59255L0.477862 6.4378C0.0233619 6.50755 -0.158138 7.0603 0.160612 7.38655L4.18061 11.5071L3.23036 17.3323C3.15461 17.7951 3.64886 18.1423 4.05761 17.9151L9.00011 15.1836L13.9426 17.9158C14.3476 18.1408 14.8464 17.8003 14.7699 17.3331L13.8196 11.5078L17.8396 7.3873C18.1584 7.0603 17.9761 6.50755 17.5224 6.4378Z"
+                                                fill="#FFC107" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_5869_5340">
+                                                <rect width="18" height="18" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
+                                        fill="none">
+                                        <g clip-path="url(#clip0_5869_5340)">
+                                            <path
+                                                d="M17.5224 6.4378L11.9889 5.59255L9.50861 0.309547C9.32337 -0.0849532 8.67611 -0.0849532 8.49086 0.309547L6.01136 5.59255L0.477862 6.4378C0.0233619 6.50755 -0.158138 7.0603 0.160612 7.38655L4.18061 11.5071L3.23036 17.3323C3.15461 17.7951 3.64886 18.1423 4.05761 17.9151L9.00011 15.1836L13.9426 17.9158C14.3476 18.1408 14.8464 17.8003 14.7699 17.3331L13.8196 11.5078L17.8396 7.3873C18.1584 7.0603 17.9761 6.50755 17.5224 6.4378Z"
+                                                fill="#FFC107" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_5869_5340">
+                                                <rect width="18" height="18" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <p class="WhatOurClientsSayCardText">
+                                    “Policy Bear helped me find an affordable plan that covers my
+                                    family's needs without breaking the bank.”
+                                </p>
+                                <div class="WhatOurClientsSayCardImageNAme">
+                                    <img src="{% static 'images/clint.webp' %}" loading="lazy" alt="Client Image"
+                                        class="WhatOurClientsSayCardImage">
+                                    <div class="WhatOurClientsSayCardNameWaper">
+                                        <h1 class="WhatOurClientsSayCardName">Sarah Mitchell</h1>
+                                        <p class="WhatOurClientsSayCardNameText">Small Business Owner</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                        <div class="carousel-item">
+                            <div class="WhatOurClientsSayCard">
+                                <div class="WhatOurClientsSayCardIcon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
+                                        fill="none">
+                                        <g clip-path="url(#clip0_5869_5340)">
+                                            <path
+                                                d="M17.5224 6.4378L11.9889 5.59255L9.50861 0.309547C9.32337 -0.0849532 8.67611 -0.0849532 8.49086 0.309547L6.01136 5.59255L0.477862 6.4378C0.0233619 6.50755 -0.158138 7.0603 0.160612 7.38655L4.18061 11.5071L3.23036 17.3323C3.15461 17.7951 3.64886 18.1423 4.05761 17.9151L9.00011 15.1836L13.9426 17.9158C14.3476 18.1408 14.8464 17.8003 14.7699 17.3331L13.8196 11.5078L17.8396 7.3873C18.1584 7.0603 17.9761 6.50755 17.5224 6.4378Z"
+                                                fill="#FFC107" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_5869_5340">
+                                                <rect width="18" height="18" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
+                                        fill="none">
+                                        <g clip-path="url(#clip0_5869_5340)">
+                                            <path
+                                                d="M17.5224 6.4378L11.9889 5.59255L9.50861 0.309547C9.32337 -0.0849532 8.67611 -0.0849532 8.49086 0.309547L6.01136 5.59255L0.477862 6.4378C0.0233619 6.50755 -0.158138 7.0603 0.160612 7.38655L4.18061 11.5071L3.23036 17.3323C3.15461 17.7951 3.64886 18.1423 4.05761 17.9151L9.00011 15.1836L13.9426 17.9158C14.3476 18.1408 14.8464 17.8003 14.7699 17.3331L13.8196 11.5078L17.8396 7.3873C18.1584 7.0603 17.9761 6.50755 17.5224 6.4378Z"
+                                                fill="#FFC107" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_5869_5340">
+                                                <rect width="18" height="18" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
+                                        fill="none">
+                                        <g clip-path="url(#clip0_5869_5340)">
+                                            <path
+                                                d="M17.5224 6.4378L11.9889 5.59255L9.50861 0.309547C9.32337 -0.0849532 8.67611 -0.0849532 8.49086 0.309547L6.01136 5.59255L0.477862 6.4378C0.0233619 6.50755 -0.158138 7.0603 0.160612 7.38655L4.18061 11.5071L3.23036 17.3323C3.15461 17.7951 3.64886 18.1423 4.05761 17.9151L9.00011 15.1836L13.9426 17.9158C14.3476 18.1408 14.8464 17.8003 14.7699 17.3331L13.8196 11.5078L17.8396 7.3873C18.1584 7.0603 17.9761 6.50755 17.5224 6.4378Z"
+                                                fill="#FFC107" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_5869_5340">
+                                                <rect width="18" height="18" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
+                                        fill="none">
+                                        <g clip-path="url(#clip0_5869_5340)">
+                                            <path
+                                                d="M17.5224 6.4378L11.9889 5.59255L9.50861 0.309547C9.32337 -0.0849532 8.67611 -0.0849532 8.49086 0.309547L6.01136 5.59255L0.477862 6.4378C0.0233619 6.50755 -0.158138 7.0603 0.160612 7.38655L4.18061 11.5071L3.23036 17.3323C3.15461 17.7951 3.64886 18.1423 4.05761 17.9151L9.00011 15.1836L13.9426 17.9158C14.3476 18.1408 14.8464 17.8003 14.7699 17.3331L13.8196 11.5078L17.8396 7.3873C18.1584 7.0603 17.9761 6.50755 17.5224 6.4378Z"
+                                                fill="#FFC107" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_5869_5340">
+                                                <rect width="18" height="18" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
+                                        fill="none">
+                                        <g clip-path="url(#clip0_5869_5340)">
+                                            <path
+                                                d="M17.5224 6.4378L11.9889 5.59255L9.50861 0.309547C9.32337 -0.0849532 8.67611 -0.0849532 8.49086 0.309547L6.01136 5.59255L0.477862 6.4378C0.0233619 6.50755 -0.158138 7.0603 0.160612 7.38655L4.18061 11.5071L3.23036 17.3323C3.15461 17.7951 3.64886 18.1423 4.05761 17.9151L9.00011 15.1836L13.9426 17.9158C14.3476 18.1408 14.8464 17.8003 14.7699 17.3331L13.8196 11.5078L17.8396 7.3873C18.1584 7.0603 17.9761 6.50755 17.5224 6.4378Z"
+                                                fill="#FFC107" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_5869_5340">
+                                                <rect width="18" height="18" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <p class="WhatOurClientsSayCardText">
+                                    “Policy Bear helped me find an affordable plan that covers my
+                                    family's needs without breaking the bank.”
+                                </p>
+                                <div class="WhatOurClientsSayCardImageNAme">
+                                    <img src="{% static 'images/clint.webp' %}" loading="lazy" alt="Client Image"
+                                        class="WhatOurClientsSayCardImage">
+                                    <div class="WhatOurClientsSayCardNameWaper">
+                                        <h1 class="WhatOurClientsSayCardName">Sarah Mitchell</h1>
+                                        <p class="WhatOurClientsSayCardNameText">Small Business Owner</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
@@ -1268,7 +1351,7 @@
                 </div>
             </div>
             <a href="#" class="WhatOurClientsSayButton">
-                <button class="WhatOurClientsSayButtonOne">Why Families Trust Policy Bear</button>
+                <button class="WhatOurClientsSayButtonOne" data-aos="flip-right">Why Families Trust Policy Bear</button>
             </a>
         </div>
     </div>
@@ -1280,66 +1363,46 @@
             <p class="FAQText">Get answers to common questions about ACA insurance, enrollment, and our services</p>
             <div class="FAQCardWaper">
                 <div class="accordion" id="accordionExample">
+                    {% for i in faq %}
+                    {% if forloop.counter == 1 %}
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                Accordion Item #1
+                                data-bs-target="#collapse{{forloop.counter}}" aria-expanded="true"
+                                aria-controls="collapse{{forloop.counter}}">
+                                {{i.Question}}
                             </button>
                         </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse show"
+                        <div id="collapse{{forloop.counter}}" class="accordion-collapse collapse show"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                <strong>This is the first item’s accordion body.</strong> It is shown by default, until
-                                the collapse plugin adds the appropriate classes that we use to style each element.
-                                These classes control the overall appearance, as well as the showing and hiding via CSS
-                                transitions. You can modify any of this with custom CSS or overriding our default
-                                variables. It’s also worth noting that just about any HTML can go within the
-                                <code>.accordion-body</code>, though the transition does limit overflow.
+                                {{i.Answer}}
                             </div>
                         </div>
                     </div>
+                    {% else %}
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                Accordion Item #2
+                                data-bs-target="#collapse{{forloop.counter}}" aria-expanded="false"
+                                aria-controls="collapse{{forloop.counter}}">
+                                {{i.Question}}
                             </button>
                         </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div id="collapse{{forloop.counter}}" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                <strong>This is the second item’s accordion body.</strong> It is hidden by default,
-                                until the collapse plugin adds the appropriate classes that we use to style each
-                                element. These classes control the overall appearance, as well as the showing and hiding
-                                via CSS transitions. You can modify any of this with custom CSS or overriding our
-                                default variables. It’s also worth noting that just about any HTML can go within the
-                                <code>.accordion-body</code>, though the transition does limit overflow.
+                                {{i.Answer}}
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                Accordion Item #3
-                            </button>
-                        </h2>
-                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <strong>This is the third item’s accordion body.</strong> It is hidden by default, until
-                                the collapse plugin adds the appropriate classes that we use to style each element.
-                                These classes control the overall appearance, as well as the showing and hiding via CSS
-                                transitions. You can modify any of this with custom CSS or overriding our default
-                                variables. It’s also worth noting that just about any HTML can go within the
-                                <code>.accordion-body</code>, though the transition does limit overflow.
-                            </div>
-                        </div>
-                    </div>
+                    {% endif %}
+                    {% endfor %}
                 </div>
             </div>
 
             <a href="#" class="FAQButton">
-                <button class="FAQButtonOne">Still have questions? Chat with a licensed agent</button>
+                <button class="FAQButtonOne" data-aos="flip-right">Still have questions? Chat with a licensed agent</button>
             </a>
 
         </div>
@@ -1353,12 +1416,12 @@
     </svg>
     <div class="container">
         <div class="CTAWaper">
-            <div class="CTALeft">
+            <div class="CTALeft" data-aos="flip-right">
                 <h1 class="CTATitel">Let’s Find Your Best ACA Health Plan</h1>
                 <p class="CTAText">You deserve clear, affordable coverage. We’ll help you get it with licensed agents,
                     smart tools, and no pressure.</p>
                 <div class="CTAButtonWaper">
-                    <a href="#">
+                    <a href="{% url 'supplement-insurance' %}">
                         <button class="CTAButtonOne">
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
                                 fill="none">
@@ -1376,7 +1439,7 @@
                             Start My Free Quote
                         </button>
                     </a>
-                    <a href="#">
+                    <a href="tel:844POL-BEAR">
                         <button class="CTAButtonTow">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22"
                                 fill="none">
@@ -1405,10 +1468,22 @@
                     </a>
                 </div>
             </div>
-            <div class="CTARight">
+            <div class="CTARight" data-aos="flip-left">
                 <img src="{% static 'images/CTA.webp' %}" loading="lazy" alt="CTA Image" class="CTARightImage">
             </div>
         </div>
     </div>
+</div>
+
+<div class="clickforsound" id="clickforsound">
+    <p>We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. By continuing
+        to use our website, you consent to our use of cookies. For more information, please see our <a href="#">[Privacy
+            Policy].</a></p>
+    <button class="DeclineButton" onclick="PlayWithSound()">
+        Decline
+    </button>
+    <button class="AcceptButton" onclick="PlayWithSound()">
+        Accept
+    </button>
 </div>
 {% endblock %}

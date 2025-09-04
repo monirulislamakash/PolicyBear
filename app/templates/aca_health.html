@@ -2,6 +2,10 @@
 {% load static %}
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/outer.css' %}">
+<style>
+
+</style>
 {% endblock %}
 {% block title %}Home{% endblock %}
 {% block body %}
@@ -21,7 +25,7 @@
                 <p class="heroSectionText2">Find your 2025 ACA health plan in 30 seconds. Over 90% of Americans
                     qualify—even with recent policy updates.</p>
                 <div class="heroSectionButton">
-                    <a href="#" class="HerroButton-1">
+                    <a href="tel:844POL-BEAR" class="HerroButton-1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
                             <g clip-path="url(#clip0_5869_10759)">
                                 <path
@@ -132,8 +136,34 @@
                         </div>
                         <div class="HeroForm">
                             {% if responce %}
-                            <h1 style="color:#ffff; text-align: center;">${{responce.premium}}</h1>
-                            <p style="color:#ffff; text-align: center;">{{responce.name}}</p>
+                            <h1 class="subsidyCalculatorHead">${{responce.premium}}</h1>
+                            <p class="subsidyCalculatorText">{{responce.plan}}</p>
+                            <a href="tel:844POL-BEAR">
+                                <button class="HeroFormButton" type="submit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22"
+                                        fill="none">
+                                        <g clip-path="url(#clip0_5869_10759)">
+                                            <path
+                                                d="M18.8192 9.23213C18.8456 6.1304 16.2039 3.28693 12.9303 2.89373C12.8652 2.88601 12.7943 2.87426 12.7192 2.86183C12.5571 2.83498 12.3895 2.80737 12.2204 2.80737C11.5495 2.80737 11.3702 3.27866 11.3229 3.55975C11.277 3.83304 11.3208 4.06253 11.4529 4.24216C11.6751 4.54428 12.066 4.59791 12.38 4.64089C12.4721 4.6536 12.5589 4.66542 12.6316 4.68175C15.5728 5.33894 16.5631 6.37219 17.0471 9.28835C17.0589 9.35962 17.0643 9.44741 17.0699 9.54053C17.091 9.88912 17.135 10.6144 17.9147 10.6144H17.9148C17.9797 10.6144 18.0495 10.6088 18.1221 10.5977C18.8482 10.4874 18.8254 9.82442 18.8145 9.5059C18.8114 9.41619 18.8085 9.33133 18.8161 9.27489C18.8181 9.26068 18.8191 9.2464 18.8192 9.23213Z"
+                                                fill="#0033A0" />
+                                            <path
+                                                d="M12.0301 1.75508C12.1172 1.76137 12.1997 1.76738 12.2683 1.7779C17.098 2.52064 19.3191 4.80891 19.9346 9.67638C19.9451 9.75912 19.9467 9.86003 19.9484 9.96689C19.9546 10.3472 19.9672 11.1383 20.8168 11.1547L20.8432 11.155C21.1097 11.155 21.3216 11.0746 21.4732 10.916C21.7377 10.6393 21.7192 10.2284 21.7043 9.89809C21.7007 9.81705 21.6972 9.74074 21.6981 9.67392C21.7595 4.69577 17.4504 0.181602 12.4767 0.0137329C12.4561 0.0130497 12.4364 0.0141429 12.4165 0.0169441C12.4067 0.0183789 12.3886 0.0201553 12.3576 0.0201553C12.308 0.0201553 12.247 0.0158509 12.1823 0.0114783C12.1041 0.00614907 12.0154 0 11.9255 0C11.1334 0 10.9828 0.562981 10.9636 0.898584C10.9191 1.67419 11.6695 1.72878 12.0301 1.75508Z"
+                                                fill="#0033A0" />
+                                            <path
+                                                d="M19.7016 15.9674C19.5989 15.8889 19.4927 15.8078 19.3933 15.7277C18.866 15.3033 18.305 14.9122 17.7624 14.5339C17.6498 14.4554 17.5372 14.3769 17.4251 14.2982C16.7301 13.8101 16.1053 13.5728 15.5149 13.5728C14.7199 13.5728 14.0267 14.0122 13.4545 14.8784C13.2011 15.2625 12.8935 15.4492 12.5145 15.4492C12.2904 15.4492 12.0358 15.3852 11.7578 15.2591C9.51455 14.2418 7.91272 12.6821 6.99671 10.6233C6.55391 9.62828 6.69746 8.97785 7.47675 8.44848C7.91928 8.14813 8.74298 7.58898 8.68463 6.51822C8.61857 5.30227 5.93566 1.64365 4.80525 1.22811C4.32665 1.05211 3.8238 1.05047 3.30796 1.22401C2.00845 1.66086 1.07591 2.42806 0.610907 3.44252C0.161546 4.42275 0.181838 5.57372 0.669596 6.77101C2.07965 10.2327 4.06211 13.2508 6.56211 15.7413C9.00917 18.1794 12.0168 20.1765 15.5014 21.6769C15.8155 21.812 16.145 21.8858 16.3855 21.9395C16.4675 21.958 16.5383 21.9737 16.5899 21.9878C16.6182 21.9956 16.6475 21.9997 16.6768 22L16.7043 22.0001C16.7043 22.0001 16.7043 22.0001 16.7045 22.0001C18.3434 22.0001 20.3113 20.5025 20.9157 18.7951C21.4452 17.3001 20.4784 16.5611 19.7016 15.9674Z"
+                                                fill="#0033A0" />
+                                            <path
+                                                d="M12.755 5.70934C12.4744 5.71644 11.8905 5.73093 11.6856 6.32568C11.5897 6.60362 11.6012 6.84493 11.7197 7.04293C11.8937 7.33344 12.227 7.42247 12.5301 7.47132C13.6295 7.64773 14.1941 8.25567 14.3071 9.38436C14.3595 9.91065 14.7139 10.2782 15.1689 10.2782C15.2026 10.2782 15.237 10.2762 15.2712 10.272C15.8185 10.2069 16.0838 9.80482 16.0598 9.07705C16.0686 8.3175 15.6711 7.45519 14.995 6.76834C14.3166 6.07938 13.4989 5.69137 12.755 5.70934Z"
+                                                fill="#0033A0" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_5869_10759">
+                                                <rect width="22" height="22" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                    Talk to a Licensed Agent </button>
+                            </a>
                             {% else %}
                             <form method="POST">
                                 {% csrf_token %}
@@ -223,13 +253,13 @@
 <div class="WhyUs">
     <div class="container">
         <div class="WhyUsWaper">
-            <h1 class="WhyUsWaperTitel">Understanding the ACA Health Insurance Plan</h1>
-            <p class="WhyUsWaperTextACA">
+            <h1 class="WhyUsWaperTitel" data-aos="fade-up">Understanding the ACA Health Insurance Plan</h1>
+            <p class="WhyUsWaperTextACA" data-aos="fade-up">
                 The Affordable Care Act (ACA), also known as Obamacare, helps people without access to job-based
                 insurance—like self-employed individuals, part-time workers, and those between jobs—get affordable
                 coverage.
             </p>
-            <div class="WhyUsCardWaper">
+            <div class="WhyUsCardWaper" data-aos="fade-up">
                 <div class="WhyUsCardACA">
                     <div class="WhyUsCardIcon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="49" height="48" viewBox="0 0 49 48" fill="none">
@@ -279,12 +309,12 @@
                     <p class="WhyUsCardTextACA">Free preventive care and wellness visits</p>
                 </div>
             </div>
-            <div class="WhyUsWaperText2ndACA">
+            <div class="WhyUsWaperText2ndACA" data-aos="fade-up">
                  Not sure if you qualify? Use our ACA Subsidy Calculator to find out in under<span>30 seconds</span>.
             </div>
             <div class="WhyUsWaperButtonACAWaper">
-                <a href="#">
-                    <button class="WhyUsWaperButtonACA">
+                <a href="{% url 'affordable-health-insurance' %}">
+                    <button class="WhyUsWaperButtonACA" data-aos="flip-right">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
                             <path
                                 d="M13.5 1.5H4.5C3.67157 1.5 3 2.17157 3 3V15C3 15.8284 3.67157 16.5 4.5 16.5H13.5C14.3284 16.5 15 15.8284 15 15V3C15 2.17157 14.3284 1.5 13.5 1.5Z"
@@ -318,13 +348,13 @@
 <div class="ACAMarketplacePlans">
     <div class="container">
         <div class="ACAMarketplacePlansWaper">
-            <h1 class="ACAMarketplacePlansTitel">ACA Marketplace Plans: Know Your Options</h1>
-            <p class="ACAMarketplacePlansText">
+            <h1 class="ACAMarketplacePlansTitel" data-aos="fade-up">ACA Marketplace Plans: Know Your Options</h1>
+            <p class="ACAMarketplacePlansText" data-aos="fade-up">
                 It does not matter where you live or what your situation is, there is an ACA plan designed for you.
                 Choose your health insurance plan based on your ZIP code, age, income, and household size.
             </p>
             <div class="ACAMarketplacePlansCardWaper">
-                <div class="ACAMarketplacePlansCard">
+                <div class="ACAMarketplacePlansCard" data-aos="fade-right">
                     <div class="ACAMarketplacePlansCardIconName">
                         <div class="ACAMarketplacePlansCardIcon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="74" height="74" viewBox="0 0 74 74"
@@ -407,7 +437,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="ACAMarketplacePlansCard">
+                <div class="ACAMarketplacePlansCard" data-aos="fade-left">
                     <div class="ACAMarketplacePlansCardIconName">
                         <div class="ACAMarketplacePlansCardIcon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="74" height="74" viewBox="0 0 74 74"
@@ -484,28 +514,178 @@
 <div class="HowToEnrollInACA">
     <div class="container">
         <div class="HowToEnrollInACAWaper">
-            <h1 class="HowToEnrollInACATitel">
+            <h1 class="HowToEnrollInACATitel" data-aos="fade-up">
                 How to Enroll in ACA Health Insurance in 2025
             </h1>
-            <p class="HowToEnrollInACAText">
+            <p class="HowToEnrollInACAText" data-aos="fade-up">
                 It does not matter where you live or what your situation is, there is an ACA plan designed for you.
                 Choose your health insurance plan based on your ZIP code, age, income, and household size.
             </p>
-
+        </div>
+        <div class="HowToEnrollInACA-container">
+            <div class="HowToEnrollInACA-step-container">
+                <div class="HowToEnrollInACA-step-card left-aligned open-enrollment" data-aos="fade-right">
+                    <h1>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="24" r="24" fill="#E4FFEE" />
+                            <path
+                                d="M23.9999 33.1889C29.0749 33.1889 33.189 29.0748 33.189 23.9997C33.189 18.9247 29.0749 14.8105 23.9999 14.8105C18.9248 14.8105 14.8107 18.9247 14.8107 23.9997C14.8107 29.0748 18.9248 33.1889 23.9999 33.1889Z"
+                                stroke="#0033A0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M23.9998 18.4863V23.9998L27.6754 25.8377" stroke="#0033A0" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        Open Enrollment Period
+                    </h1>
+                    <p>
+                        The main opportunity to get ACA coverage. Don't miss this window!
+                    </p>
+                    <span>November 1 - January 15 </span>
+                </div>
+                <div class="HowToEnrollInACA-step-number">1</div>
+            </div>
+            <div class="HowToEnrollInACA-step-container">
+                <div class="HowToEnrollInACA-step-number">2</div>
+                <div
+                    class="HowToEnrollInACA-step-card right-aligned special-enrollment HowToEnrollInACA-step-cardRight" data-aos="fade-left">
+                    <h1>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="24" r="24" fill="#E4FFEE" />
+                            <path
+                                d="M27.7792 32.5029V30.6133C27.7792 29.6109 27.381 28.6497 26.6722 27.9409C25.9635 27.2322 25.0022 26.834 23.9999 26.834H18.3309C17.3286 26.834 16.3673 27.2322 15.6586 27.9409C14.9498 28.6497 14.5516 29.6109 14.5516 30.6133V32.5029"
+                                stroke="#0033A0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                                d="M21.1654 23.0547C23.2527 23.0547 24.9447 21.3626 24.9447 19.2754C24.9447 17.1881 23.2527 15.4961 21.1654 15.4961C19.0782 15.4961 17.3861 17.1881 17.3861 19.2754C17.3861 21.3626 19.0782 23.0547 21.1654 23.0547Z"
+                                stroke="#0033A0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                                d="M33.4482 32.5031V30.6135C33.4476 29.7761 33.1689 28.9627 32.6559 28.3009C32.1428 27.6391 31.4246 27.1664 30.6138 26.957"
+                                stroke="#0033A0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                                d="M27.7793 15.6191C28.5922 15.8273 29.3128 16.3001 29.8273 16.963C30.3419 17.6259 30.6212 18.4412 30.6212 19.2803C30.6212 20.1195 30.3419 20.9348 29.8273 21.5977C29.3128 22.2606 28.5922 22.7334 27.7793 22.9415"
+                                stroke="#0033A0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        Special Enrollment
+                    </h1>
+                    <p>
+                        Even if you’ve missed Open Enrollment, you may still qualify—don’t worry, we’ll help you check
+                    </p>
+                    <div class="HowToEnrollInACA-step-cardRightList">
+                        <div class="HowToEnrollInACA-step-cardRightListLeft">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"
+                                    fill="none">
+                                    <path
+                                        d="M11 5.53993V5.99993C10.9994 7.07814 10.6503 8.12727 10.0047 8.99084C9.35908 9.85442 8.45164 10.4862 7.41768 10.7919C6.38372 11.0976 5.27863 11.0609 4.26724 10.6872C3.25584 10.3136 2.39233 9.62298 1.80548 8.71847C1.21863 7.81395 0.939896 6.74396 1.01084 5.66809C1.08178 4.59221 1.4986 3.5681 2.19914 2.74847C2.89968 1.92884 3.84639 1.35762 4.89809 1.12001C5.9498 0.882387 7.05013 0.991101 8.035 1.42993"
+                                        stroke="#2563EB" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M4.5 5.5L6 7L11 2" stroke="#2563EB" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                                Job loss
+                            </span>
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"
+                                    fill="none">
+                                    <path
+                                        d="M11 5.53993V5.99993C10.9994 7.07814 10.6503 8.12727 10.0047 8.99084C9.35908 9.85442 8.45164 10.4862 7.41768 10.7919C6.38372 11.0976 5.27863 11.0609 4.26724 10.6872C3.25584 10.3136 2.39233 9.62298 1.80548 8.71847C1.21863 7.81395 0.939896 6.74396 1.01084 5.66809C1.08178 4.59221 1.4986 3.5681 2.19914 2.74847C2.89968 1.92884 3.84639 1.35762 4.89809 1.12001C5.9498 0.882387 7.05013 0.991101 8.035 1.42993"
+                                        stroke="#2563EB" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M4.5 5.5L6 7L11 2" stroke="#2563EB" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                                New baby
+                            </span>
+                        </div>
+                        <div class="HowToEnrollInACA-step-cardRightListRight">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"
+                                    fill="none">
+                                    <path
+                                        d="M11 5.53993V5.99993C10.9994 7.07814 10.6503 8.12727 10.0047 8.99084C9.35908 9.85442 8.45164 10.4862 7.41768 10.7919C6.38372 11.0976 5.27863 11.0609 4.26724 10.6872C3.25584 10.3136 2.39233 9.62298 1.80548 8.71847C1.21863 7.81395 0.939896 6.74396 1.01084 5.66809C1.08178 4.59221 1.4986 3.5681 2.19914 2.74847C2.89968 1.92884 3.84639 1.35762 4.89809 1.12001C5.9498 0.882387 7.05013 0.991101 8.035 1.42993"
+                                        stroke="#2563EB" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M4.5 5.5L6 7L11 2" stroke="#2563EB" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                                Marriage
+                            </span>
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"
+                                    fill="none">
+                                    <path
+                                        d="M11 5.53993V5.99993C10.9994 7.07814 10.6503 8.12727 10.0047 8.99084C9.35908 9.85442 8.45164 10.4862 7.41768 10.7919C6.38372 11.0976 5.27863 11.0609 4.26724 10.6872C3.25584 10.3136 2.39233 9.62298 1.80548 8.71847C1.21863 7.81395 0.939896 6.74396 1.01084 5.66809C1.08178 4.59221 1.4986 3.5681 2.19914 2.74847C2.89968 1.92884 3.84639 1.35762 4.89809 1.12001C5.9498 0.882387 7.05013 0.991101 8.035 1.42993"
+                                        stroke="#2563EB" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M4.5 5.5L6 7L11 2" stroke="#2563EB" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                                Moving states
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="HowToEnrollInACA-step-container">
+                <div class="HowToEnrollInACA-step-card left-aligned" data-aos="fade-right">
+                    <h1>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="24" r="24" fill="#E4FFEE" />
+                            <path
+                                d="M37.4166 28.7144V31.5894C37.4177 31.8563 37.363 32.1205 37.2561 32.3651C37.1492 32.6096 36.9924 32.8291 36.7957 33.0096C36.599 33.19 36.3668 33.3274 36.114 33.4129C35.8612 33.4984 35.5933 33.5301 35.3275 33.5061C32.3785 33.1857 29.5458 32.178 27.057 30.564C24.7415 29.0927 22.7784 27.1295 21.307 24.814C19.6874 22.3139 18.6795 19.4675 18.365 16.5053C18.341 16.2403 18.3725 15.9732 18.4574 15.721C18.5424 15.4688 18.6789 15.2371 18.8583 15.0406C19.0377 14.8441 19.256 14.687 19.4994 14.5795C19.7428 14.472 20.0059 14.4164 20.272 14.4161H23.147C23.6121 14.4115 24.063 14.5762 24.4156 14.8795C24.7683 15.1828 24.9986 15.6039 25.0637 16.0644C25.1851 16.9845 25.4101 17.8879 25.7345 18.7574C25.8635 19.1004 25.8914 19.4732 25.815 19.8315C25.7385 20.1899 25.5609 20.5189 25.3033 20.7794L24.0862 21.9965C25.4504 24.3958 27.437 26.3823 29.8362 27.7465L31.0533 26.5294C31.3138 26.2718 31.6428 26.0942 32.0012 26.0178C32.3596 25.9413 32.7324 25.9693 33.0754 26.0982C33.9448 26.4226 34.8482 26.6477 35.7683 26.769C36.2338 26.8347 36.659 27.0692 36.9629 27.4279C37.2668 27.7866 37.4283 28.2445 37.4166 28.7144Z"
+                                stroke="#0033A0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        Get Expert Help
+                    </h1>
+                    <p>
+                        Get expert help from licensed agents—at no cost to you—to choose the right plan and maximize
+                        your savings.
+                    </p>
+                    <div class="HowToEnrollInACA-step-cardButtonWaper">
+                        <a href="tel:844POL-BEAR">
+                            <button class="HowToEnrollInACA-step-cardButto-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
+                                    fill="none">
+                                    <g clip-path="url(#clip0_5869_10419)">
+                                        <path
+                                            d="M13.6867 6.71454C13.7059 4.45874 11.7846 2.39076 9.40387 2.1048C9.35652 2.09918 9.30494 2.09064 9.25033 2.08159C9.13247 2.06207 9.01058 2.04199 8.8876 2.04199C8.39965 2.04199 8.26922 2.38475 8.23488 2.58917C8.20149 2.78793 8.23334 2.95484 8.32939 3.08547C8.49098 3.3052 8.7753 3.3442 9.00368 3.37546C9.07061 3.3847 9.13376 3.3933 9.18663 3.40517C11.3257 3.88314 12.0459 4.63459 12.3979 6.75543C12.4065 6.80726 12.4104 6.87111 12.4145 6.93884C12.4299 7.19235 12.4619 7.71981 13.0289 7.71981H13.029C13.0762 7.71981 13.1269 7.71573 13.1797 7.70768C13.7078 7.62743 13.6912 7.1453 13.6833 6.91364C13.681 6.8484 13.6789 6.78669 13.6844 6.74564C13.6859 6.73531 13.6867 6.72492 13.6867 6.71454Z"
+                                            fill="#0033A0" />
+                                        <path
+                                            d="M8.74907 1.27642C8.81243 1.28099 8.8724 1.28537 8.92234 1.29302C12.4348 1.83319 14.0502 3.49739 14.4978 7.03737C14.5054 7.09754 14.5066 7.17093 14.5079 7.24865C14.5124 7.52522 14.5215 8.10057 15.1394 8.1125L15.1586 8.1127C15.3524 8.1127 15.5065 8.05426 15.6168 7.93888C15.8091 7.73769 15.7957 7.43881 15.7849 7.19861C15.7823 7.13968 15.7797 7.08417 15.7804 7.03558C15.825 3.41511 12.6911 0.132075 9.07389 0.00998758C9.05888 0.00949068 9.04457 0.0102857 9.03011 0.012323C9.02301 0.0133665 9.00984 0.0146584 8.98728 0.0146584C8.95121 0.0146584 8.90683 0.0115279 8.85978 0.00834783C8.80288 0.00447205 8.73839 0 8.673 0C8.09695 0 7.98743 0.409441 7.97342 0.653516C7.94112 1.21759 8.48681 1.25729 8.74907 1.27642Z"
+                                            fill="#0033A0" />
+                                        <path
+                                            d="M14.3284 11.6127C14.2537 11.5556 14.1765 11.4966 14.1042 11.4384C13.7207 11.1297 13.3127 10.8453 12.9181 10.5701C12.8362 10.5131 12.7543 10.456 12.6728 10.3988C12.1673 10.0437 11.7129 9.8712 11.2836 9.8712C10.7054 9.8712 10.2012 10.1907 9.7851 10.8207C9.60076 11.1 9.3771 11.2358 9.10148 11.2358C8.9385 11.2358 8.7533 11.1893 8.55112 11.0975C6.91966 10.3577 5.75469 9.2234 5.08851 7.72611C4.76647 7.00243 4.87087 6.52939 5.43763 6.14439C5.75947 5.92596 6.35852 5.5193 6.31609 4.74057C6.26804 3.85624 4.31683 1.19542 3.49472 0.893213C3.14665 0.765213 2.78093 0.76402 2.40578 0.890232C1.46068 1.20795 0.782471 1.76591 0.444285 2.5037C0.117477 3.21659 0.132235 4.05366 0.486968 4.92442C1.51246 7.44198 2.95425 9.63696 4.77243 11.4483C6.55211 13.2214 8.73949 14.6738 11.2738 15.7651C11.5022 15.8633 11.7418 15.917 11.9167 15.9561C11.9764 15.9695 12.0278 15.9809 12.0654 15.9912C12.086 15.9968 12.1072 15.9998 12.1286 16L12.1486 16.0001C12.1486 16.0001 12.1486 16.0001 12.1487 16.0001C13.3406 16.0001 14.7718 14.911 15.2114 13.6692C15.5965 12.5819 14.8934 12.0445 14.3284 11.6127Z"
+                                            fill="#0033A0" />
+                                        <path
+                                            d="M9.27628 4.15229C9.07221 4.15746 8.64751 4.16799 8.49849 4.60054C8.42878 4.80268 8.43713 4.97818 8.52334 5.12218C8.64985 5.33346 8.89223 5.3982 9.11271 5.43373C9.91226 5.56203 10.3229 6.00417 10.405 6.82504C10.4432 7.20779 10.7009 7.47507 11.0319 7.47507C11.0563 7.47507 11.0814 7.47363 11.1062 7.4706C11.5043 7.42325 11.6972 7.13082 11.6798 6.60153C11.6861 6.04913 11.397 5.422 10.9054 4.92248C10.412 4.42141 9.81725 4.13922 9.27628 4.15229Z"
+                                            fill="#0033A0" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_5869_10419">
+                                            <rect width="16" height="16" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                                Talk to a Licensed Agent
+                            </button>
+                        </a>
+                        <a href="{% url 'affordable-health-insurance' %}">
+                            <button class="HowToEnrollInACA-step-cardButto-2">
+                                Calculate My Subsidy
+                            </button>
+                        </a>
+                    </div>
+                </div>
+                <div class="HowToEnrollInACA-step-number">3</div>
+            </div>
         </div>
     </div>
 </div>
 <div class="HavingtroubleSection">
     <img class="HavingtroubleSectionBG" src="{% static 'images/watermark.webp' %}" class="" alt="BG" loading="lazy">
     <div class="container">
-        <div class="HavingtroubleSectionWaper">
+        <div class="HavingtroubleSectionWaper" data-aos="zoom-in">
             <h1 class="HavingtroubleSectionTitel">Having trouble logging into Healthcare.gov?</h1>
             <p class="HavingtroubleSectionText">
                 You can still get full subsidies by applying directly through licensed agents from Policy Bear,no
                 government website login required.
             </p>
             <div class="HavingtroubleSectionButtonWaper">
-                <a href="#">
+                <a href="{% url 'affordable-health-insurance' %}">
                     <button class="HavingtroubleSectionButton">
                         <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
                             <path
@@ -540,11 +720,11 @@
 <div class="BenefitsThatAllACA">
     <div class="container">
         <div class="BenefitsThatAllACAWaper">
-            <h1 class="BenefitsThatAllACATitel">10 Essential Benefits That All ACA Plans Include</h1>
-            <p class="BenefitsThatAllACAText">Every ACA-compliant plan, from Bronze to Platinum, must include these
+            <h1 class="BenefitsThatAllACATitel" data-aos="fade-up">10 Essential Benefits That All ACA Plans Include</h1>
+            <p class="BenefitsThatAllACAText" data-aos="fade-up">Every ACA-compliant plan, from Bronze to Platinum, must include these
                 comprehensive benefits at no extra cost to you.</p>
             <div class="BenefitsThatAllACACardWaper">
-                <div class="BenefitsThatAllACACard">
+                <div class="BenefitsThatAllACACard" data-aos="fade-right">
                     <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
                         <circle cx="32" cy="32" r="32" fill="#DCFCE7" />
                         <path
@@ -644,7 +824,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="BenefitsThatAllACACard">
+                <div class="BenefitsThatAllACACard" data-aos="fade-right">
                     <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
                         <circle cx="32" cy="32" r="32" fill="#DBEAFE" />
                         <path
@@ -747,14 +927,14 @@
                     </div>
                 </div>
                 <div class="BenefitsThatAllACACardLastWaper">
-                    <div class="BenefitsThatAllACACardLastOne">
+                    <div class="BenefitsThatAllACACardLastOne" data-aos="fade-left">
                         <h1>100%</h1>
                         <h2>Coverage Guaranteed</h2>
                         <p>
                             All 10 essential benefits are included in every ACA plan, regardless of your health status
                         </p>
                     </div>
-                    <div class="BenefitsThatAllACACardLastTow">
+                    <div class="BenefitsThatAllACACardLastTow" data-aos="fade-left">
                         <h1>ACA vs. Traditional Insurance</h1>
                         <div class="BenefitsThatAllACACardLastTowListWaper">
                             <ul class="BenefitsThatAllACACardLastTowListOne">
@@ -815,7 +995,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="BenefitsThatAllACACardLastTree">
+                    <div class="BenefitsThatAllACACardLastTree" data-aos="fade-left">
                         <svg xmlns="http://www.w3.org/2000/svg" width="37" height="44" viewBox="0 0 37 44" fill="none">
                             <path
                                 d="M34.6699 23.9999C34.6699 33.9999 27.6699 38.9999 19.3499 41.8999C18.9142 42.0476 18.441 42.0405 18.0099 41.8799C9.66992 38.9999 2.66992 33.9999 2.66992 23.9999V9.99992C2.66992 9.46949 2.88064 8.96078 3.25571 8.58571C3.63078 8.21064 4.13949 7.99992 4.66992 7.99992C8.66992 7.99992 13.6699 5.59992 17.1499 2.55992C17.5736 2.19792 18.1126 1.99902 18.6699 1.99902C19.2272 1.99902 19.7662 2.19792 20.1899 2.55992C23.6899 5.61992 28.6699 7.99992 32.6699 7.99992C33.2004 7.99992 33.7091 8.21064 34.0841 8.58571C34.4592 8.96078 34.6699 9.46949 34.6699 9.99992V23.9999Z"
@@ -828,7 +1008,7 @@
                             We only work with verified carriers and licensed
                             agents. Get expert guidance with no obligation.
                         </p>
-                        <a href="#">
+                        <a href="tel:844POL-BEAR">
                             <button class="BenefitsThatAllACACardLastTreeButton">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="23" height="22" viewBox="0 0 23 22"
                                     fill="none">
@@ -871,7 +1051,7 @@
                 when you need it most.
             </p>
             <div class="WhyACAEssentialBenefitsLeftButtonWaper">
-                <a href="#">
+                <a href="{% url 'affordable-health-insurance' %}">
                     <button class="WhyACAEssentialBenefitsLeftButtonOne">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
                             <path
@@ -922,11 +1102,11 @@
         </div>
         <div class="WhyACAEssentialBenefitsRight">
             <div class="WhyACAEssentialBenefitsRightPartOne">
-                <div class="WhyACAEssentialBenefitsRightPartOneCard">
+                <div class="WhyACAEssentialBenefitsRightPartOneCard" data-aos="fade-down-right">
                     <h1>$0</h1>
                     <p>Preventive Care Cost</p>
                 </div>
-                <div class="WhyACAEssentialBenefitsRightPartOneCard">
+                <div class="WhyACAEssentialBenefitsRightPartOneCard" data-aos="fade-up-right">
                     <h1>∞</h1>
                     <p>No Lifetime Limits</p>
                 </div>
@@ -942,11 +1122,11 @@
                 </svg>
             </div>
             <div class="WhyACAEssentialBenefitsRightPartOne">
-                <div class="WhyACAEssentialBenefitsRightPartOneCard">
+                <div class="WhyACAEssentialBenefitsRightPartOneCard" data-aos="fade-down-left">
                     <h1>$0</h1>
                     <p>Preventive Care Cost</p>
                 </div>
-                <div class="WhyACAEssentialBenefitsRightPartOneCard">
+                <div class="WhyACAEssentialBenefitsRightPartOneCard" data-aos="fade-up-left">
                     <h1>∞</h1>
                     <p>No Lifetime Limits</p>
                 </div>
@@ -955,13 +1135,13 @@
     </div>
     <div class="container">
         <div class="CriticalACAUpdatesWaper">
-            <h1>
+            <h1 data-aos="fade-up">
                 2025 Critical ACA Updates: What You Need to Know
             </h1>
-            <p>
+            <p data-aos="fade-up">
                 The insurance world never remains the same, and 2025 brings important changes you should know about.
             </p>
-            <div class="CriticalACAUpdatesCardWaper">
+            <div class="CriticalACAUpdatesCardWaper" data-aos="zoom-in">
                 <div class="CriticalACAUpdatesCard">
                     <svg xmlns="http://www.w3.org/2000/svg" width="74" height="74" viewBox="0 0 74 74" fill="none">
                         <circle cx="37" cy="37" r="37" fill="#E4FFEE" />
@@ -1014,7 +1194,7 @@
                     </p>
                 </div>
             </div>
-            <div class="CriticalACAUpdatesCard2nd">
+            <div class="CriticalACAUpdatesCard2nd" data-aos="fade-up">
                 <div class="CriticalACAUpdatesCard2ndLeft">
                     <div class="CriticalACAUpdatesCard2ndLeftHeader">
                         <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 52 52" fill="none">
@@ -1035,7 +1215,7 @@
                     </p>
                     <span>Start exploring alternatives now during Open Enrollment.</span>
                 </div>
-                <a href="#">
+                <a href="tel:844POL-BEAR">
                     <button class="CriticalACAUpdatesCard2ndLeftButton">
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
                             <g clip-path="url(#clip0_5869_10477)">
@@ -1072,66 +1252,46 @@
             <p class="FAQText">Get answers to common questions about ACA insurance, enrollment, and our services</p>
             <div class="FAQCardWaper">
                 <div class="accordion" id="accordionExample">
-                    <div class="accordion-item-aca accordion-item">
+                    {% for i in faq %}
+                    {% if forloop.counter == 1 %}
+                    <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                Accordion Item #1
+                                data-bs-target="#collapse{{forloop.counter}}" aria-expanded="true"
+                                aria-controls="collapse{{forloop.counter}}">
+                                {{i.Question}}
                             </button>
                         </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse show"
+                        <div id="collapse{{forloop.counter}}" class="accordion-collapse collapse show"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                <strong>This is the first item’s accordion body.</strong> It is shown by default, until
-                                the collapse plugin adds the appropriate classes that we use to style each element.
-                                These classes control the overall appearance, as well as the showing and hiding via CSS
-                                transitions. You can modify any of this with custom CSS or overriding our default
-                                variables. It’s also worth noting that just about any HTML can go within the
-                                <code>.accordion-body</code>, though the transition does limit overflow.
+                                {{i.Answer}}
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item-aca accordion-item">
+                    {% else %}
+                    <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                Accordion Item #2
+                                data-bs-target="#collapse{{forloop.counter}}" aria-expanded="false"
+                                aria-controls="collapse{{forloop.counter}}">
+                                {{i.Question}}
                             </button>
                         </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div id="collapse{{forloop.counter}}" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                <strong>This is the second item’s accordion body.</strong> It is hidden by default,
-                                until the collapse plugin adds the appropriate classes that we use to style each
-                                element. These classes control the overall appearance, as well as the showing and hiding
-                                via CSS transitions. You can modify any of this with custom CSS or overriding our
-                                default variables. It’s also worth noting that just about any HTML can go within the
-                                <code>.accordion-body</code>, though the transition does limit overflow.
+                                {{i.Answer}}
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item-aca accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                Accordion Item #3
-                            </button>
-                        </h2>
-                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <strong>This is the third item’s accordion body.</strong> It is hidden by default, until
-                                the collapse plugin adds the appropriate classes that we use to style each element.
-                                These classes control the overall appearance, as well as the showing and hiding via CSS
-                                transitions. You can modify any of this with custom CSS or overriding our default
-                                variables. It’s also worth noting that just about any HTML can go within the
-                                <code>.accordion-body</code>, though the transition does limit overflow.
-                            </div>
-                        </div>
-                    </div>
+                    {% endif %}
+                    {% endfor %}
                 </div>
             </div>
 
             <a href="#" class="FAQButton">
-                <button class="FAQButtonOne">Still have questions? Chat with a licensed agent</button>
+                <button class="FAQButtonOne" data-aos="flip-right">Still have questions? Chat with a licensed agent</button>
             </a>
 
         </div>
@@ -1145,7 +1305,7 @@
     </svg>
     <div class="container">
         <div class="CTAWaper">
-            <div class="CTALeft">
+            <div class="CTALeft" data-aos="fade-right">
                 <h1 class="CTATitel">Let’s Find Your Best ACA Health Plan</h1>
                 <p class="CTAText">You deserve clear, affordable coverage. We’ll help you get it with licensed agents,
                     smart tools, and no pressure.</p>
@@ -1168,7 +1328,7 @@
                             Start My Free Quote
                         </button>
                     </a>
-                    <a href="#">
+                    <a href="tel:844POL-BEAR">
                         <button class="CTAButtonTow">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22"
                                 fill="none">
@@ -1197,7 +1357,7 @@
                     </a>
                 </div>
             </div>
-            <div class="CTARight">
+            <div class="CTARight" data-aos="fade-left">
                 <img src="{% static 'images/CTA.webp' %}" loading="lazy" alt="CTA Image" class="CTARightImage">
             </div>
         </div>

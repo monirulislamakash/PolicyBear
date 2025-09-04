@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+{% endblock %}
+{% block title %}Home{% endblock %}
+{% block body %}
+    <div class="PrivacyPolicy container">
+        <div class="PrivacyPolicyTitel">
+            <h1>Disclaimer – Policy Bear</h1>
+            <p>Last Updated: {{getPrivacyPolicy.Date}}</p>
+        </div>
+        <div class="PrivacyPolicyContent">
+            {{getPrivacyPolicy.Disclaimer|safe}}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,112 @@
+[
+  {
+    "question": "What if I'm self-employed or a freelancer?",
+    "answer": "Being self-employed or a freelancer makes you a perfect candidate for ACA plans[cite: 3, 4]. You can use your projected annual income to qualify for subsidies[cite: 5]. If you earn less than expected, you might even get money back at tax time[cite: 5].",
+    "tags": ["self-employed", "freelancer", "eligibility", "income"]
+  },
+  {
+    "question": "Who qualifies for ACA health insurance?",
+    "answer": "Any individuals earning up to 400% of the Federal Poverty Level can apply for ACA health insurance to receive subsidies[cite: 71].",
+    "tags": ["qualifications", "eligibility", "income", "subsidies"]
+  },
+  {
+    "question": "What counts as 'household size'?",
+    "answer": "It's you, your spouse (if married), and anyone you claim as a tax dependent[cite: 11]. This number makes a huge difference in your subsidy amount[cite: 13].",
+    "tags": ["household size", "family", "taxes", "subsidies"]
+  },
+  {
+    "question": "Can I really get an ACA plan for $0/month?",
+    "answer": "Yes, many Americans qualify for ACA plans with a $0 monthly premium, especially after the subsidy expansions under the American Rescue Plan and Inflation Reduction Act[cite: 73].",
+    "tags": ["cost", "price", "premium", "subsidy"]
+  },
+  {
+    "question": "I got a raise. Will I have to pay back my subsidies?",
+    "answer": "Maybe, but there are caps on how much you have to pay back[cite: 15, 16]. If your income goes up but stays under 400% of the poverty level, you might owe some money back[cite: 16]. You should report any income changes to Healthcare.gov right away to avoid surprises[cite: 17].",
+    "tags": ["income change", "raise", "subsidies", "repayment"]
+  },
+  {
+    "question": "What's the difference between a copay and coinsurance?",
+    "answer": "A copay is a flat fee, like $30 for a doctor visit[cite: 60]. Coinsurance is a percentage you pay after you've met your deductible, like 20% of the cost of a procedure[cite: 61, 62].",
+    "tags": ["copay", "coinsurance", "cost", "medical bills"]
+  },
+  {
+    "question": "Why do some plans have high deductibles?",
+    "answer": "It's a trade-off between monthly premium and out-of-pocket costs[cite: 63]. Higher deductible plans usually have lower monthly payments[cite: 64]. If you are healthy, a high-deductible plan might save you money[cite: 64].",
+    "tags": ["deductible", "cost", "premium", "health plans"]
+  },
+  {
+    "question": "What does 'out-of-network' mean for my wallet?",
+    "answer": "Out-of-network usually means you pay way more, sometimes the full cost[cite: 66]. However, emergency care is different, and they can't charge you out-of-network rates for true emergencies[cite: 68].",
+    "tags": ["out-of-network", "cost", "coverage", "doctors"]
+  },
+  {
+    "question": "What's the difference between urgent care and emergency room costs?",
+    "answer": "Urgent care usually costs a copay, maybe $50-100[cite: 30]. Emergency rooms often hit your deductible first, so you could pay hundreds or thousands[cite: 31]. Save the ER for real emergencies[cite: 32].",
+    "tags": ["urgent care", "emergency room", "cost", "medical bills"]
+  },
+  {
+    "question": "Do ACA plans cover pre-existing conditions?",
+    "answer": "Yes, they do[cite: 27]. There are no waiting periods or exclusions[cite: 27]. You are covered from your first day of coverage[cite: 28].",
+    "tags": ["pre-existing conditions", "coverage", "benefits"]
+  },
+  {
+    "question": "Can I change my plan mid-year if I find a cheaper one?",
+    "answer": "Not usually, unless you have a qualifying life event[cite: 18]. You should shop around during Open Enrollment, as insurance companies change their prices and networks every year[cite: 19, 20].",
+    "tags": ["change plan", "enrollment", "policy", "cost"]
+  },
+  {
+    "question": "What happens if I forget to pay my premium?",
+    "answer": "Most insurers give you a grace period, usually 30-90 days[cite: 21]. After that, they can cancel your coverage[cite: 22]. You'll be stuck until the next enrollment period unless you qualify for Special Enrollment[cite: 22].",
+    "tags": ["premium", "payment", "cancellation", "grace period"]
+  },
+  {
+    "question": "My doctor says they don't take my ACA plan. What are my options?",
+    "answer": "First, double-check because sometimes office staff get this wrong[cite: 25]. If they really don't take it, you can appeal to your insurance for an exception, pay out-of-network costs, or switch plans during the next enrollment[cite: 25].",
+    "tags": ["doctors", "network", "coverage", "out-of-network"]
+  },
+  {
+    "question": "What is a Special Enrollment Period?",
+    "answer": "It's an opportunity for a special chance of health coverage when you miss the regular Open Enrollment period[cite: 77]. You may qualify for Special Enrollment if you experience life events like moving, losing coverage, getting married, or having a baby[cite: 87].",
+    "tags": ["special enrollment", "enrollment", "life events", "deadlines"]
+  },
+  {
+    "question": "I'm between jobs right now. Should I wait to get insurance?",
+    "answer": "Don't wait, this is exactly when you need coverage most[cite: 7]. Job loss qualifies you for a Special Enrollment Period, so you can sign up right away[cite: 8]. Plus, if your income is low while job hunting, you might qualify for really good subsidies[cite: 9].",
+    "tags": ["job loss", "special enrollment", "unemployed"]
+  },
+  {
+    "question": "I'm turning 26 and getting kicked off my parents' plan. What do I do?",
+    "answer": "Losing coverage because of age qualifies you for Special Enrollment[cite: 35]. You have 60 days before or after your 26th birthday to pick a plan[cite: 36].",
+    "tags": ["age", "special enrollment", "parents' plan"]
+  },
+  {
+    "question": "What if I move in the middle of the year?",
+    "answer": "Moving is one of the easiest ways to get Special Enrollment[cite: 39]. You'll get to shop for new coverage in your new area because different states have different plans and prices[cite: 40]. You must report your move within 60 days[cite: 41].",
+    "tags": ["moving", "special enrollment", "new state"]
+  },
+  {
+    "question": "I'm pregnant. Does this change my ACA options?",
+    "answer": "Pregnancy is a qualifying event for Special Enrollment[cite: 42]. Maternity care is an essential benefit that all ACA plans must cover[cite: 42].",
+    "tags": ["pregnancy", "maternity", "special enrollment"]
+  },
+  {
+    "question": "What if my insurance company leaves the marketplace?",
+    "answer": "You will qualify for a Special Enrollment Period, and we'll help you find a similar plan that keeps your subsidies[cite: 102].",
+    "tags": ["insurance company", "marketplace", "special enrollment"]
+  },
+  {
+    "question": "How is Policy Bear's service free?",
+    "answer": "Policy Bear's service is completely free because they are paid by insurance companies, not by you[cite: 83]. You pay the same premium whether you work with them or go directly to the insurer[cite: 84]. This is also true for supplemental insurance[cite: 118].",
+    "tags": ["Policy Bear", "cost", "free service", "payments"]
+  },
+  {
+    "question": "How do I know if Policy Bear is recommending the right plan for me?",
+    "answer": "Our agents ask about your doctors, medications, and health needs, not just your budget[cite: 46]. We want to put you in the plan that actually works for your life[cite: 48]. Since our service is free, we don't have any incentive to steer you wrong[cite: 49].",
+    "tags": ["Policy Bear", "agents", "recommendations", "trust"]
+  },
+  {
+    "question": "Can Policy Bear help me if I already have an ACA plan?",
+    "answer": "Yes, we help people optimize their coverage all year round[cite: 52]. We're here for ongoing support if you need help understanding a bill, having trouble with a claim, or figuring out if a service is covered[cite: 53, 54, 55].",
+    "tags": ["Policy Bear", "existing plan", "support", "assistance"]
+  }
+]

@@ -1,38 +1,120 @@
 import requests
 import time
-import requests
 import json
+import logging
 
-#Get countyfips From ZIP Code
+# Set up logging for better visibility of what's happening
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+# --- Helper Functions (remain the same) ---
+
+def robust_get(url, retries=3, delay=2):
+    """
+    A robust wrapper for requests.get with retries and delays.
+    It returns the response object or None on failure.
+    """
+    for i in range(retries):
+        try:
+            response = requests.get(url, timeout=10)
+            response.raise_for_status()
+            return response
+        except requests.RequestException as e:
+            logging.warning(f"Request to {url} failed (attempt {i+1}/{retries}): {e}")
+            if i < retries - 1:
+                logging.info(f"Retrying in {delay} seconds...")
+                time.sleep(delay)
+            else:
+                logging.error(f"All retry attempts failed for {url}.")
+                return None
 
 def get_lat_lon_and_state(zip_code):
     """Fetch latitude, longitude, and state abbreviation for a given ZIP code."""
     url = f"http://api.zippopotam.us/us/{zip_code}"
+    response = robust_get(url)
+    if response is None:
+        return None, None, None
+    
     try:
-        response = requests.get(url)
-        response.raise_for_status()
         data = response.json()
         place = data['places'][0]
         return float(place['latitude']), float(place['longitude']), place['state abbreviation']
-    except requests.RequestException as e:
-        print(f"Error fetching coordinates: {e}")
+    except (IndexError, KeyError) as e:
+        logging.error(f"Error parsing zippopotam.us response: {e}")
         return None, None, None
 
+# --- Main Function with API Fallback ---
+
 def get_county_fips_with_state(zip_code):
-    """Get county FIPS code and state abbreviation for a given ZIP code."""
+    """
+    Gets county FIPS code and state abbreviation using a list of fallback APIs.
+    It tries each API in order until a successful response is received.
+    """
     lat, lon, state_abbr = get_lat_lon_and_state(zip_code)
     if lat is None or lon is None:
         return None, None
-    
-    url = f"https://geo.fcc.gov/api/census/block/find?format=json&latitude={lat}&longitude={lon}"
+
+    # Define a list of fallback API functions
+    # Each function should take lat, lon, and state_abbr and return a (fips, state_abbr) tuple
+    api_providers = [
+        # get_fips_from_fcc_api,
+        get_fips_from_census_api
+    ]
+
+    for provider_function in api_providers:
+        fips, state = provider_function(lat, lon, state_abbr)
+        if fips:
+            # If the provider function returns a valid FIPS code, we're done
+            logging.info(f"Successfully retrieved FIPS from {provider_function.__name__}")
+            return fips, state
+        else:
+            logging.warning(f"{provider_function.__name__} failed. Trying the next provider.")
+
+    logging.error("All FIPS code providers failed.")
+    return None, state_abbr
+
+# --- Provider Functions (one for each API) ---
+
+# def get_fips_from_fcc_api(lat, lon, state_abbr):
+#     """
+#     Retrieves FIPS from the original FCC Geo API.
+#     Returns (fips, state_abbr) or (None, state_abbr) on failure.
+#     """
+#     logging.info("Attempting to use FCC Geo API...")
+#     url = f"https://geo.fcc.gov/api/census/block/find?format=json&latitude={lat}&longitude={lon}"
+#     response = robust_get(url)
+#     if response is None:
+#         return None, state_abbr
+
+#     try:
+#         data = response.json()
+#         county_fips = data['County']['FIPS']
+#         return county_fips, state_abbr
+#     except (KeyError, IndexError) as e:
+#         logging.error(f"Error parsing FCC Geo API response: {e}")
+#         return None, state_abbr
+
+def get_fips_from_census_api(lat, lon, state_abbr):
+    """
+    Retrieves FIPS from the U.S. Census Bureau Geocoder API.
+    Returns (fips, state_abbr) or (None, state_abbr) on failure.
+    """
+    logging.info("Attempting to use U.S. Census Bureau Geocoder API...")
+    url = f"https://geocoding.geo.census.gov/geocoder/geographies/coordinates?x={lon}&y={lat}&benchmark=Public_AR_Current&vintage=Census2020_Current&format=json"
+    response = robust_get(url)
+    if response is None:
+        return None, state_abbr
+
     try:
-        response = requests.get(url)
-        response.raise_for_status()
         data = response.json()
-        county_fips = data['County']['FIPS']
+        if not data['result']['geographies']['Counties']:
+            logging.warning("No county information found from Census API.")
+            return None, state_abbr
+            
+        county_data = data['result']['geographies']['Counties'][0]
+        county_fips = county_data['GEOID']
         return county_fips, state_abbr
-    except requests.RequestException as e:
-        print(f"Error fetching FIPS code: {e}")
+    except (KeyError, IndexError) as e:
+        logging.error(f"Error parsing U.S. Census Geocoder response: {e}")
         return None, state_abbr
 
 # API Intgration
@@ -77,9 +159,10 @@ def get_Offer_details(get_Zip,county_fips,state_abbr,get_income,get_age,get_gend
             filtered_plans.append({
                 "id": plan.get("id"),
                 "name": plan.get("name"),
-                "premium": plan.get("premium"),
-                "premium_w_credit": plan.get("premium_w_credit"),
-                "ehb_premium": plan.get("ehb_premium"),
+                "plan":f'{issuer_name.split()[0]} {plan.get("metal_level")} Plan',
+                # "premium": plan.get("premium"),
+                "premium": plan.get("ehb_premium"),
+                "subsidy ": plan.get("premium_w_credit"),
                 "pediatric_ehb_premium": plan.get("pediatric_ehb_premium"),
                 "aptc_eligible_premium": plan.get("aptc_eligible_premium"),
                 "metal_level": plan.get("metal_level"),
@@ -92,8 +175,6 @@ def get_Offer_details(get_Zip,county_fips,state_abbr,get_income,get_age,get_gend
         # with open(output_filename, 'w') as f:
         #     json.dump(filtered_plans, f, indent=4)
         return filtered_plans
-        
-        print(f"Filtered plans saved to '{output_filename}'")
     else:
         print(f"Error: {response.status_code}")
         print(response.text)

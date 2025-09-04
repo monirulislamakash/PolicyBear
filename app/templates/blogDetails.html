@@ -1,0 +1,233 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+{% endblock %}
+{% block title %}{% endblock %}
+{% block body %}
+<div class="BlogDetail">
+    <div class="container">
+        <div class="BlogDetailWaper">
+            <div class="BlogDetailLeft">
+                <div class="BlogDetailTitelMobile">
+                    {{allBlog.Name}}
+                </div>
+                <div class="BlogDetailLeftImageWaper">
+                    <img class="BlogDetailLeftImage" src="{{allBlog.Image.url}}" alt="" loading="lazy">
+                </div>
+                <div class="BlogDetailShear">
+                    <a href="#" class="BlogDetailShearButton">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14" viewBox="0 0 16 14" fill="none">
+                            <path
+                                d="M9.59375 0.0876413C9.23438 0.247016 9 0.606391 9 1.00014V3.00014H5.5C2.4625 3.00014 0 5.46264 0 8.50014C0 12.0408 2.54688 13.622 3.13125 13.9408C3.20937 13.9845 3.29688 14.0001 3.38438 14.0001C3.725 14.0001 4 13.722 4 13.3845C4 13.1501 3.86562 12.9345 3.69375 12.7751C3.4 12.497 3 11.9501 3 11.0001C3 9.34389 4.34375 8.00014 6 8.00014H9V10.0001C9 10.3939 9.23125 10.7533 9.59375 10.9126C9.95625 11.072 10.375 11.0064 10.6687 10.7439L15.6687 6.24389C15.8781 6.05327 16 5.78452 16 5.50014C16 5.21577 15.8812 4.94702 15.6687 4.75639L10.6687 0.256391C10.375 -0.00923368 9.95312 -0.0748587 9.59375 0.0876413Z"
+                                fill="#78BE20" />
+                        </svg>
+                        Share on:
+                    </a>
+                    <a href="#" class="BlogDetailShearButtonIcon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="19.5" fill="white" stroke="#78BE20" />
+                            <path
+                                d="M16.0937 22.0297V32H21.5312V22.0297H25.5859L26.4297 17.4453H21.5312V15.8234C21.5312 13.4 22.4828 12.4719 24.9391 12.4719C25.7031 12.4719 26.3172 12.4906 26.6734 12.5281V8.37031C26.0031 8.1875 24.3625 8 23.4156 8C18.4047 8 16.0937 10.3672 16.0937 15.4719V17.4453H13V22.0297H16.0937Z"
+                                fill="#78BE20" />
+                        </svg>
+                    </a>
+                    <a href="#" class="BlogDetailShearButtonIcon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="19.5" fill="white" stroke="#78BE20" />
+                            <path
+                                d="M13.8135 30H9.35513V16.6473H13.8135V30ZM11.5819 14.8259C10.1566 14.8259 9 13.7277 9 12.4018C9 11.7648 9.27202 11.1539 9.75623 10.7035C10.2404 10.253 10.8972 10 11.5819 10C12.2667 10 12.9234 10.253 13.4076 10.7035C13.8918 11.1539 14.1638 11.7648 14.1638 12.4018C14.1638 13.7277 13.0073 14.8259 11.5819 14.8259ZM30.4952 30H26.0464V23.5C26.0464 21.9509 26.0128 19.9643 23.7285 19.9643C21.4105 19.9643 21.0554 21.6473 21.0554 23.3884V30H16.6018V16.6473H20.8778V18.4688H20.9402C21.5353 17.4196 22.9894 16.3125 25.1586 16.3125C29.6698 16.3125 30.5 19.0759 30.5 22.6652V30H30.4952Z"
+                                fill="#78BE20" />
+                        </svg>
+                    </a>
+                    <a href="#" class="BlogDetailShearButtonIcon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="19.5" fill="white" stroke="#78BE20" />
+                            <path
+                                d="M25.9934 10.25H29.3027L22.0746 18.5094L30.5777 29.75H23.9215L18.7043 22.9344L12.7418 29.75H9.42773L17.1574 20.9141L9.00586 10.25H15.8309L20.5418 16.4797L25.9934 10.25ZM24.8309 27.7719H26.6637L14.8324 12.125H12.8637L24.8309 27.7719Z"
+                                fill="#78BE20" />
+                        </svg>
+                    </a>
+                    <a href="#" class="BlogDetailShearButtonIcon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="19.5" fill="white" stroke="#78BE20" />
+                            <path
+                                d="M19.7543 14.6093C16.773 14.6093 14.3684 17.014 14.3684 19.9952C14.3684 22.9765 16.773 25.3812 19.7543 25.3812C22.7355 25.3812 25.1402 22.9765 25.1402 19.9952C25.1402 17.014 22.7355 14.6093 19.7543 14.6093ZM19.7543 23.4968C17.8277 23.4968 16.2527 21.9265 16.2527 19.9952C16.2527 18.064 17.823 16.4937 19.7543 16.4937C21.6855 16.4937 23.2559 18.064 23.2559 19.9952C23.2559 21.9265 21.6809 23.4968 19.7543 23.4968ZM26.6168 14.389C26.6168 15.0874 26.0543 15.6452 25.3605 15.6452C24.6621 15.6452 24.1043 15.0827 24.1043 14.389C24.1043 13.6952 24.6668 13.1327 25.3605 13.1327C26.0543 13.1327 26.6168 13.6952 26.6168 14.389ZM30.184 15.664C30.1043 13.9812 29.7199 12.4905 28.4871 11.2624C27.259 10.0343 25.7684 9.6499 24.0855 9.56553C22.3512 9.46709 17.1527 9.46709 15.4184 9.56553C13.7402 9.64521 12.2496 10.0296 11.0168 11.2577C9.78398 12.4858 9.4043 13.9765 9.31992 15.6593C9.22148 17.3937 9.22148 22.5921 9.31992 24.3265C9.39961 26.0093 9.78398 27.4999 11.0168 28.728C12.2496 29.9562 13.7355 30.3405 15.4184 30.4249C17.1527 30.5233 22.3512 30.5233 24.0855 30.4249C25.7684 30.3452 27.259 29.9608 28.4871 28.728C29.7152 27.4999 30.0996 26.0093 30.184 24.3265C30.2824 22.5921 30.2824 17.3983 30.184 15.664ZM27.9434 26.1874C27.5777 27.1062 26.8699 27.814 25.9465 28.1843C24.5637 28.7327 21.2824 28.6062 19.7543 28.6062C18.2262 28.6062 14.9402 28.728 13.5621 28.1843C12.6434 27.8187 11.9355 27.1108 11.5652 26.1874C11.0168 24.8046 11.1434 21.5233 11.1434 19.9952C11.1434 18.4671 11.0215 15.1812 11.5652 13.803C11.9309 12.8843 12.6387 12.1765 13.5621 11.8062C14.9449 11.2577 18.2262 11.3843 19.7543 11.3843C21.2824 11.3843 24.5684 11.2624 25.9465 11.8062C26.8652 12.1718 27.573 12.8796 27.9434 13.803C28.4918 15.1858 28.3652 18.4671 28.3652 19.9952C28.3652 21.5233 28.4918 24.8093 27.9434 26.1874Z"
+                                fill="#78BE20" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="BlogDetailTitel">
+                    {{allBlog.Name}}
+                </div>
+                <div class="BlogDetailText">
+                    {{allBlog.Description|safe}}
+                </div>
+            </div>
+            <div class="BlogDetailRight">
+                <form class="BlogDetailRightSearchContainer">
+                    <input type="text" class="BlogDetailRightSearchBox" placeholder="Search here">
+                    <button type="submit" class="BlogDetailRightSearchButton">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
+                            <path
+                                d="M8 14.0087C11.3137 14.0087 14 11.3205 14 8.00436C14 4.68824 11.3137 2 8 2C4.68629 2 2 4.68824 2 8.00436C2 11.3205 4.68629 14.0087 8 14.0087Z"
+                                stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M15.7508 15.7619L12.4883 12.4971" stroke="#C4C4C4" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </form>
+
+                <div class="BlogDetailRightRecentPostCrdWaper">
+                    <h1 class="BlogDetailRightRecentPostCrdWaperHead">
+                        Recent Post
+                    </h1>
+                    <div class="BlogDetailRightRecentPostCrdWaperBody">
+                        <div class="BlogDetailRightRecentPostCrd">
+                            <img class="BlogDetailRightRecentPostCrdImages" src="{% static 'images/blogProfile.webp' %}"
+                                alt="" loading="lazy">
+                            <div class="BlogDetailRightRecentPostCrdTitel">
+                                <h1>
+                                    Preventative Care is Always a Good Option
+                                </h1>
+                                <p>
+                                    8 hours age
+                                </p>
+                            </div>
+                        </div>
+                        <div class="BlogDetailRightRecentPostCrd">
+                            <img class="BlogDetailRightRecentPostCrdImages" src="{% static 'images/blogProfile.webp' %}"
+                                alt="" loading="lazy">
+                            <div class="BlogDetailRightRecentPostCrdTitel">
+                                <h1>
+                                    Preventative Care is Always a Good Option
+                                </h1>
+                                <p>
+                                    8 hours age
+                                </p>
+                            </div>
+                        </div>
+                        <div class="BlogDetailRightRecentPostCrd">
+                            <img class="BlogDetailRightRecentPostCrdImages" src="{% static 'images/blogProfile.webp' %}"
+                                alt="" loading="lazy">
+                            <div class="BlogDetailRightRecentPostCrdTitel">
+                                <h1>
+                                    Preventative Care is Always a Good Option
+                                </h1>
+                                <p>
+                                    8 hours age
+                                </p>
+                            </div>
+                        </div>
+                        <div class="BlogDetailRightRecentPostCrd">
+                            <img class="BlogDetailRightRecentPostCrdImages" src="{% static 'images/blogProfile.webp' %}"
+                                alt="" loading="lazy">
+                            <div class="BlogDetailRightRecentPostCrdTitel">
+                                <h1>
+                                    Preventative Care is Always a Good Option
+                                </h1>
+                                <p>
+                                    8 hours age
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="BlogDetailRightRecentPostCrdWaper">
+                    <h1 class="BlogDetailRightRecentPostCrdWaperHead">
+                        Popular Post
+                    </h1>
+                    <div class="BlogDetailRightRecentPostCrdWaperBody">
+                        <div class="BlogDetailRightRecentPostCrd">
+                            <img class="BlogDetailRightRecentPostCrdImages" src="{% static 'images/blogProfile.webp' %}"
+                                alt="" loading="lazy">
+                            <div class="BlogDetailRightRecentPostCrdTitel">
+                                <h1>
+                                    Preventative Care is Always a Good Option
+                                </h1>
+                                <p>
+                                    8 hours age
+                                </p>
+                            </div>
+                        </div>
+                        <div class="BlogDetailRightRecentPostCrd">
+                            <img class="BlogDetailRightRecentPostCrdImages" src="{% static 'images/blogProfile.webp' %}"
+                                alt="" loading="lazy">
+                            <div class="BlogDetailRightRecentPostCrdTitel">
+                                <h1>
+                                    Preventative Care is Always a Good Option
+                                </h1>
+                                <p>
+                                    8 hours age
+                                </p>
+                            </div>
+                        </div>
+                        <div class="BlogDetailRightRecentPostCrd">
+                            <img class="BlogDetailRightRecentPostCrdImages" src="{% static 'images/blogProfile.webp' %}"
+                                alt="" loading="lazy">
+                            <div class="BlogDetailRightRecentPostCrdTitel">
+                                <h1>
+                                    Preventative Care is Always a Good Option
+                                </h1>
+                                <p>
+                                    8 hours age
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="BlogDetailRightRecentPostCrdWaper">
+                    <h1 class="BlogDetailRightRecentPostCrdWaperHead">
+                        Share
+                    </h1>
+                    <div class="BlogDetailRightRecentPostCrdWaperShareBody">
+                        <a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"
+                                fill="none">
+                                <circle cx="20" cy="20" r="20" fill="#E7EBF3" />
+                                <path opacity="0.8"
+                                    d="M23.5713 21L24.0088 18.125H21.2275V16.25C21.2275 15.4375 21.6025 14.6875 22.8525 14.6875H24.1338V12.2188C24.1338 12.2188 22.9775 12 21.8838 12C19.6025 12 18.1025 13.4062 18.1025 15.9062V18.125H15.54V21H18.1025V28H21.2275V21H23.5713Z"
+                                    fill="#3B5998" />
+                            </svg>
+                        </a>
+                        <a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"
+                                fill="none">
+                                <circle cx="20" cy="20" r="20" fill="#FBE6ED" />
+                                <path opacity="0.8"
+                                    d="M19.8525 16.3906C17.8525 16.3906 16.2588 18.0156 16.2588 19.9844C16.2588 21.9844 17.8525 23.5781 19.8525 23.5781C21.8213 23.5781 23.4463 21.9844 23.4463 19.9844C23.4463 18.0156 21.8213 16.3906 19.8525 16.3906ZM19.8525 22.3281C18.5713 22.3281 17.5088 21.2969 17.5088 19.9844C17.5088 18.7031 18.54 17.6719 19.8525 17.6719C21.1338 17.6719 22.165 18.7031 22.165 19.9844C22.165 21.2969 21.1338 22.3281 19.8525 22.3281ZM24.415 16.2656C24.415 15.7969 24.04 15.4219 23.5713 15.4219C23.1025 15.4219 22.7275 15.7969 22.7275 16.2656C22.7275 16.7344 23.1025 17.1094 23.5713 17.1094C24.04 17.1094 24.415 16.7344 24.415 16.2656ZM26.79 17.1094C26.7275 15.9844 26.4775 14.9844 25.665 14.1719C24.8525 13.3594 23.8525 13.1094 22.7275 13.0469C21.5713 12.9844 18.1025 12.9844 16.9463 13.0469C15.8213 13.1094 14.8525 13.3594 14.0088 14.1719C13.1963 14.9844 12.9463 15.9844 12.8838 17.1094C12.8213 18.2656 12.8213 21.7344 12.8838 22.8906C12.9463 24.0156 13.1963 24.9844 14.0088 25.8281C14.8525 26.6406 15.8213 26.8906 16.9463 26.9531C18.1025 27.0156 21.5713 27.0156 22.7275 26.9531C23.8525 26.8906 24.8525 26.6406 25.665 25.8281C26.4775 24.9844 26.7275 24.0156 26.79 22.8906C26.8525 21.7344 26.8525 18.2656 26.79 17.1094ZM25.29 24.1094C25.0713 24.7344 24.5713 25.2031 23.9775 25.4531C23.04 25.8281 20.8525 25.7344 19.8525 25.7344C18.8213 25.7344 16.6338 25.8281 15.7275 25.4531C15.1025 25.2031 14.6338 24.7344 14.3838 24.1094C14.0088 23.2031 14.1025 21.0156 14.1025 19.9844C14.1025 18.9844 14.0088 16.7969 14.3838 15.8594C14.6338 15.2656 15.1025 14.7969 15.7275 14.5469C16.6338 14.1719 18.8213 14.2656 19.8525 14.2656C20.8525 14.2656 23.04 14.1719 23.9775 14.5469C24.5713 14.7656 25.04 15.2656 25.29 15.8594C25.665 16.7969 25.5713 18.9844 25.5713 19.9844C25.5713 21.0156 25.665 23.2031 25.29 24.1094Z"
+                                    fill="#E1306C" />
+                            </svg>
+                        </a>
+                        <a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"
+                                fill="none">
+                                <circle cx="20" cy="20" r="20" fill="#1DA1F2" />
+                                <path
+                                    d="M26.1963 16.7344C26.8213 16.2656 27.3838 15.7031 27.8213 15.0469C27.2588 15.2969 26.6025 15.4844 25.9463 15.5469C26.6338 15.1406 27.1338 14.5156 27.3838 13.7344C26.7588 14.1094 26.04 14.3906 25.3213 14.5469C24.6963 13.8906 23.8525 13.5156 22.915 13.5156C21.1025 13.5156 19.6338 14.9844 19.6338 16.7969C19.6338 17.0469 19.665 17.2969 19.7275 17.5469C17.0088 17.3906 14.5713 16.0781 12.9463 14.1094C12.665 14.5781 12.5088 15.1406 12.5088 15.7656C12.5088 16.8906 13.0713 17.8906 13.9775 18.4844C13.4463 18.4531 12.915 18.3281 12.4775 18.0781V18.1094C12.4775 19.7031 13.6025 21.0156 15.1025 21.3281C14.8525 21.3906 14.54 21.4531 14.2588 21.4531C14.04 21.4531 13.8525 21.4219 13.6338 21.3906C14.04 22.7031 15.2588 23.6406 16.6963 23.6719C15.5713 24.5469 14.165 25.0781 12.6338 25.0781C12.3525 25.0781 12.1025 25.0469 11.8525 25.0156C13.29 25.9531 15.0088 26.4844 16.8838 26.4844C22.915 26.4844 26.1963 21.5156 26.1963 17.1719C26.1963 17.0156 26.1963 16.8906 26.1963 16.7344Z"
+                                    fill="white" />
+                            </svg>
+                        </a>
+                        <a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="16" viewBox="0 0 13 16"
+                                fill="none">
+                                <path opacity="0.8"
+                                    d="M7.21191 0.198242C3.99316 0.198242 0.836914 2.32324 0.836914 5.79199C0.836914 7.97949 2.05566 9.22949 2.80566 9.22949C3.11816 9.22949 3.30566 8.38574 3.30566 8.13574C3.30566 7.85449 2.55566 7.22949 2.55566 6.01074C2.55566 3.51074 4.46191 1.72949 6.93066 1.72949C9.08691 1.72949 10.6494 2.94824 10.6494 5.16699C10.6494 6.82324 9.99316 9.91699 7.83691 9.91699C7.05566 9.91699 6.36816 9.35449 6.36816 8.57324C6.36816 7.38574 7.21191 6.22949 7.21191 5.01074C7.21191 2.94824 4.27441 3.32324 4.27441 5.82324C4.27441 6.35449 4.33691 6.91699 4.58691 7.41699C4.14941 9.26074 3.27441 12.042 3.27441 13.9482C3.27441 14.542 3.33691 15.1045 3.39941 15.6982C3.49316 15.8232 3.46191 15.8232 3.61816 15.7607C5.18066 13.6045 5.14941 13.167 5.83691 10.3545C6.24316 11.0732 7.21191 11.4795 8.02441 11.4795C11.3369 11.4795 12.8369 8.22949 12.8369 5.32324C12.8369 2.22949 10.1494 0.198242 7.21191 0.198242Z"
+                                    fill="#E60023" />
+                            </svg>
+                        </a>
+                        <a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"
+                                fill="none">
+                                <circle cx="20" cy="20" r="20" fill="#E0EFF6" />
+                                <path
+                                    d="M15.9619 26.9844V17.6406H13.0557V26.9844H15.9619ZM14.4932 16.3906C15.4307 16.3906 16.1807 15.6094 16.1807 14.6719C16.1807 13.7656 15.4307 13.0156 14.4932 13.0156C13.5869 13.0156 12.8369 13.7656 12.8369 14.6719C12.8369 15.6094 13.5869 16.3906 14.4932 16.3906ZM26.8057 26.9844H26.8369V21.8594C26.8369 19.3594 26.2744 17.4219 23.3369 17.4219C21.9307 17.4219 20.9932 18.2031 20.5869 18.9219H20.5557V17.6406H17.7744V26.9844H20.6807V22.3594C20.6807 21.1406 20.8994 19.9844 22.3994 19.9844C23.8994 19.9844 23.9307 21.3594 23.9307 22.4531V26.9844H26.8057Z"
+                                    fill="#0077B5" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
