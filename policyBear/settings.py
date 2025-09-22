@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ckeditor',
+    'ckeditor_uploader',
     'app',
     'rest_framework',
     'tinymce',
@@ -51,6 +53,7 @@ SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -157,6 +160,44 @@ STATICFILES_DIRS = [
 # This tells WhiteNoise to serve compressed and cached static files.
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' # <--- ADD THIS LI
 
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'filebrowserUploadUrl': '/ckeditor/upload/',
+        'filebrowserBrowseUrl': '/ckeditor/uploads/',
+        'width': '100%',
+        'extraPlugins': ','.join([
+            'font',
+            'codesnippet',
+            'justify',
+            'colorbutton',
+            'blockquote',
+        ]),
+        'toolbar_full': [
+            ['Styles', 'Format', 'Font', 'FontSize'],
+            ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', 'RemoveFormat'],
+            ['TextColor', 'BGColor'],
+            ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent'],
+            ['Link', 'Unlink', 'Anchor'],
+            ['Image', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar'],
+            ['CodeSnippet'],
+            ['Maximize', 'ShowBlocks'],
+            ['Source'],
+        ],
+    },
+    # You can define other configurations for different purposes
+    'simple_toolbar': {
+        'toolbar': 'Basic',
+        'toolbar_Basic': [
+            ['Bold', 'Italic', 'Underline', '-', 'Link', 'Unlink',],
+        ]
+    }
+}
+
+
+# CKEditor Configuration
+CKEDITOR_UPLOAD_PATH = 'uploads/'
 # Email Configuration
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST='smtp.gmail.com'

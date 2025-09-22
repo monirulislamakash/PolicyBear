@@ -1,14 +1,52 @@
 from django.db import models
 import datetime 
 from tinymce.models import HTMLField
-# Create your models here.
-class Blog(models.Model):
-    Name=models.CharField(max_length=350)
-    Image=models.FileField(upload_to="BlogImage/")
-    Description=HTMLField()
-    readtime=models.CharField(max_length=20,default='5 min read')
-    Date=models.DateField(default=datetime.datetime.today())
 
+from django_resized import ResizedImageField
+from django.utils.text import slugify
+from ckeditor_uploader.fields import RichTextUploadingField
+
+# Create your models here.
+# blog/models.py
+from django.db import models
+from django.utils.text import slugify
+from django_resized import ResizedImageField
+import datetime
+from tinymce.models import HTMLField
+
+class Blog(models.Model):
+    Name = models.CharField(max_length=350)
+    Image = ResizedImageField(quality=85, force_format='WEBP', upload_to="BlogImage/")
+    
+    Meta_Titel = models.CharField(max_length=60, default='')
+    Meta_Description = models.TextField(default='')
+    Canonical_Url = models.CharField(max_length=500, default="na")
+
+    Description = RichTextUploadingField()
+    readtime = models.CharField(max_length=20, default='5 min read')
+    Date = models.DateField(default=datetime.datetime.today())
+    slug = models.SlugField(max_length=200, unique=True, blank=True)
+
+    def __str__(self):
+        return self.Name
+
+    def save(self, *args, **kwargs):
+        # Generate the base slug from the Name field
+        base_slug = slugify(self.Name)
+
+        # Only generate a new slug if it's not set
+        if not self.slug:
+            new_slug = base_slug
+            counter = 1
+            
+            # Loop until a unique slug is found
+            while Blog.objects.filter(slug=new_slug).exists():
+                new_slug = f"{base_slug}-{counter}"
+                counter += 1
+            
+            self.slug = new_slug
+
+        super().save(*args, **kwargs)
 class Frequently_Asked_Question(models.Model):
     Question=models.CharField(max_length=300)
     Answer=HTMLField()

@@ -1,6 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block head %}
+<!-- SEO -->
+<meta property="og:title" content="{{allBlog.Name}}">
+<meta property="og:description" content="{{allBlog.Meta_Description}}">
+<meta property="og:image" content="{{domain}}{{allBlog.Image.url}}">
+<meta name="title" content="{{allBlog.Meta_Titel}}">
+<meta name="description" content="{{allBlog.Meta_Description}}">
+{% if allBlog.Canonical_Url != 'na' %}
+    <link rel="canonical" href="{{allBlog.Canonical_Url}}" />
+{% else %}
+    <link rel="canonical" href="{{canonical_url}}" />
+{% endif %}
+<!-- SEO -->
 {% endblock %}
 {% block title %}{% endblock %}
 {% block body %}

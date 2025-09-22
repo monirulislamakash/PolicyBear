@@ -6303,33 +6303,40 @@ a {
 }
 
 .clickforsound {
-    width: 100%;
+    width:370px;
     height: auto;
     position: fixed;
-    bottom: 0%;
+    flex-direction: column;
+    bottom: 2%;
+    right: 1%;
     background: #fff;
     padding: 15px;
     display: none;
-    align-items: center;
-    gap: 20px;
+    align-items: end;
+    gap: 15px;
     box-shadow: 0 8px 15px 0 rgba(11, 34, 69, 0.30);
     z-index: 3;
+}
+.clickforsoundButton{
+    display:flex;
+    justify-content:center;
+    gap:20px;
 }
 
 .clickforsound p {
     color: #0b3d8a;
     font-family: Inter;
-    font-size: 18px;
+    font-size: 12px;
     font-style: normal;
     font-weight: 400;
-    line-height: 26px;
+    line-height: 20px;
     margin: 0px;
 }
 
 .AcceptButton {
     display: flex;
-    height: 50px;
-    padding: 0 24px;
+    height: 35px;
+    padding: 0 20px;
     justify-content: center;
     align-items: center;
     gap: 8px;
@@ -6339,7 +6346,7 @@ a {
     border: none;
     color: #073B89;
     font-family: Inter;
-    font-size: 16px;
+    font-size: 12px;
     font-style: normal;
     font-weight: 600;
     line-height: 150%;
@@ -6348,8 +6355,8 @@ a {
 
 .DeclineButton {
     display: flex;
-    height: 50px;
-    padding: 0 24px;
+    height: 35px;
+    padding: 0 20px;
     justify-content: center;
     align-items: center;
     gap: 8px;
@@ -6358,7 +6365,7 @@ a {
     box-shadow: 0 8px 15px 0 rgba(11, 34, 69, 0.30);
     color: #0033A0;
     font-family: Inter;
-    font-size: 16px;
+    font-size: 12px;
     font-style: normal;
     font-weight: 600;
     line-height: 150%;

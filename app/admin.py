@@ -48,4 +48,5 @@ admin.site.register(AppliedCandidates,AppliedCandidatesAdmin)
 class BlogAdmin(admin.ModelAdmin):
     list_display = ('Name','Date')
     search_fields = ('Name','Date')
+    readonly_fields=('slug',)
 admin.site.register(Blog,BlogAdmin)

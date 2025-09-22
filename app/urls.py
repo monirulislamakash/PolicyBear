@@ -28,7 +28,7 @@ urlpatterns = [
     path('disclaimer', disclaimer, name="disclaimer"),
 
     # Dynamic pages
-    path('resources/dtails/<int:id>', resourcesdtails, name='resourcesdtails'),
+    path('resources/dtails/<slug:slug>', resourcesdtails, name='resourcesdtails'),
     path('career/details-page/<int:int>', careerdtails, name='careerdtails'),
     path('career/submit/details-page/<int:id>', careersubmitdtails, name='careersubmitdtails'),
 

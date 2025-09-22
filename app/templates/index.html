@@ -240,9 +240,9 @@
     <div class="container">
         <div class="WhyStandOutWaper">
             <h1 class="WhyStandOutTitel" data-aos="fade-up">Why Policy Bear Stands Out</h1>
-            <p class="WhyStandOutText"data-aos="fade-up">See how we put your needs first — not profits</p>
+            <p class="WhyStandOutText" data-aos="fade-up">See how we put your needs first — not profits</p>
 
-            <div class="WhyStandOutTable"  data-aos="zoom-in">
+            <div class="WhyStandOutTable" data-aos="zoom-in">
                 <div class="WhyStandOutTableOne">
                     <div class="WhyStandOutTableHeadOne">Features & Services</div>
                     <div class="WhyStandOutTableDataOne">Personalized ACA Plan Matching</div>
@@ -434,11 +434,13 @@
     <div class="container">
         <div class="WhoWeHelpWaper">
             <h2 class="WhoWeHelpTitle" data-aos="fade-up">Who We Help</h2>
-            <p class="WhoWeHelpText" data-aos="fade-up">Affordable Plans for Families, Individuals & Small Businesses</p>
+            <p class="WhoWeHelpText" data-aos="fade-up">Affordable Plans for Families, Individuals & Small Businesses
+            </p>
             <div class="slider-container">
                 <div class="section first-section">
                     <div class="first-section-Image">
-                        <img src="{% static 'images/whowehelpsection1.webp' %}" loading="lazy" alt="Who We Help Image" data-aos="fade-right">
+                        <img src="{% static 'images/whowehelpsection1.webp' %}" loading="lazy" alt="Who We Help Image"
+                            data-aos="fade-right">
                     </div>
                     <div class="first-section-Test" data-aos="fade-left">
                         <h1>Individual & Family Coverage</h1>
@@ -852,7 +854,8 @@
     <div class="container">
         <div class="WhatOurClientsSayWaper">
             <h1 class="WhatOurClientsSayTitel" data-aos="fade-up">What Our Clients Say</h1>
-            <p class="WhatOurClientsSayText" data-aos="fade-up">Real stories from real people who found affordable health insurance with
+            <p class="WhatOurClientsSayText" data-aos="fade-up">Real stories from real people who found affordable
+                health insurance with
                 Policy Bear.</p>
             <div class="WhatOurClientsSayCardWaper" data-aos="fade-up">
                 <div class="WhatOurClientsSayCard">
@@ -1402,7 +1405,8 @@
             </div>
 
             <a href="#" class="FAQButton">
-                <button class="FAQButtonOne" data-aos="flip-right">Still have questions? Chat with a licensed agent</button>
+                <button class="FAQButtonOne" data-aos="flip-right">Still have questions? Chat with a licensed
+                    agent</button>
             </a>
 
         </div>
@@ -1478,12 +1482,15 @@
 <div class="clickforsound" id="clickforsound">
     <p>We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. By continuing
         to use our website, you consent to our use of cookies. For more information, please see our <a href="#">[Privacy
-            Policy].</a></p>
-    <button class="DeclineButton" onclick="PlayWithSound()">
-        Decline
-    </button>
-    <button class="AcceptButton" onclick="PlayWithSound()">
-        Accept
-    </button>
+            Policy].</a>
+    </p>
+    <div class="clickforsoundButton">
+        <button class="DeclineButton" onclick="PlayWithSound()">
+            Decline
+        </button>
+        <button class="AcceptButton" onclick="PlayWithSound()">
+            Accept
+        </button>
+    </div>
 </div>
 {% endblock %}

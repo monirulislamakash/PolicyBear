@@ -139,9 +139,9 @@
                             {{blog.Name}}
                         </div>
                         <div class="LatestACAInsightsGuidesCardText">
-                            {{blog.Description|safe|slice:"0:100"}}...
+                            {{blog.Name}}...
                         </div>
-                        <a href="{% url 'resourcesdtails' blog.id %}" class="LatestACAInsightsGuidesCardReadMore">
+                        <a href="{% url 'resourcesdtails' blog.slug %}" class="LatestACAInsightsGuidesCardReadMore">
                             Read More
                             <svg xmlns="http://www.w3.org/2000/svg" width="19" height="20" viewBox="0 0 19 20"
                                 fill="none">

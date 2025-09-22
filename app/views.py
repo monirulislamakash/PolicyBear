@@ -14,6 +14,12 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from django.views.decorators.http import require_POST
 from dotenv import load_dotenv
+# Image Upload CkEditor
+import uuid
+from PIL import Image
+from django.http import JsonResponse, HttpResponseBadRequest
+from django.conf import settings
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 
@@ -164,10 +170,14 @@ def resources(request):
     }
     return render(request, 'blog.html',sendvar)
 
-def resourcesdtails(request,id):
-    allBlog=Blog.objects.get(id=id)
+def resourcesdtails(request,slug):
+    allBlog=Blog.objects.get(slug=slug)
+    domain = request.get_host()
+    canonical_url = f"http://{domain}/{allBlog.slug}/"
     sendvar={
-        "allBlog":allBlog
+        "allBlog":allBlog,
+        'domain':domain,
+        'canonical_url':canonical_url,
     }
     return render(request, 'blogDetails.html',sendvar)
 
@@ -227,6 +237,60 @@ def disclaimer(request):
         'getPrivacyPolicy':getPrivacyPolicy
     }
     return render(request, 'disclaimer.html',sendvar)
+
+@csrf_exempt
+def ckeditor_upload_to_webp(request):
+    """
+    This function is the "special function" that handles the image upload.
+    It takes an image, converts it to WebP, and saves it.
+    """
+    if request.method != 'POST' or 'upload' not in request.FILES:
+        return HttpResponseBadRequest('Invalid request')
+
+    uploaded_file = request.FILES['upload']
+    
+    # 1. Open the image file that CKEditor sent.
+    try:
+        img = Image.open(uploaded_file)
+    except Exception:
+        return JsonResponse({
+            "uploaded": 0,
+            "error": {"message": "Invalid image file."}
+        })
+        
+    # 2. Create a unique name for the new WebP file.
+    unique_filename = f"{uuid.uuid4()}.webp"
+    
+    # 3. Define the path where the file will be saved.
+    upload_dir = os.path.join(settings.MEDIA_ROOT, 'ckeditor', 'uploads')
+    os.makedirs(upload_dir, exist_ok=True)
+    save_path = os.path.join(upload_dir, unique_filename)
+    
+    # 4. Convert and save the image as a WebP file.
+    img.save(save_path, 'webp', quality=85)
+    
+    # 5. Get the public URL for the newly saved WebP file.
+    image_url = os.path.join(settings.MEDIA_URL, 'ckeditor', 'uploads', unique_filename)
+    
+    # 6. Send the new WebP URL back to CKEditor so it can display it.
+    response_data = {
+        "uploaded": 1,
+        "fileName": unique_filename,
+        "url": image_url.replace(os.sep, '/') 
+    }
+    return JsonResponse(response_data)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # ========================>>>>>>>>>>>
