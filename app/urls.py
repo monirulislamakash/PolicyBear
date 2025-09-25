@@ -31,7 +31,7 @@ urlpatterns = [
     # Dynamic pages
     path('resources/dtails/<slug:slug>', resourcesdtails, name='resourcesdtails'),
     path('privew/<slug:slug>', privew_blog, name='privew_blog'),
-    path('career/details-page/<int:int>', careerdtails, name='careerdtails'),
+    path('career/details-page/<int:id>', careerdtails, name='careerdtails'),
     path('career/submit/details-page/<int:id>', careersubmitdtails, name='careersubmitdtails'),
 
     # Sitemaps and Robots.txt

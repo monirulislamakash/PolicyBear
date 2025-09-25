@@ -184,20 +184,15 @@
                                 {% csrf_token %}
                                 <div class="HeroFormZipCountry">
                                     <div class="mb-3 HeroFormZipCountryInputWaper">
-                                        <label class="form-label HeroFormZipCountryInputLabel">First Name</label>
+                                        <label class="form-label HeroFormZipCountryInputLabel">Full Name</label>
                                         <input type="text" class="form-control" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp" placeholder="John" name="zip">
+                                            aria-describedby="emailHelp" placeholder="John Smith" name="zip">
                                     </div>
                                     <div class="mb-3 HeroFormZipCountryInputWaper">
-                                        <label class="form-label HeroFormZipCountryInputLabel">Last Name</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp" placeholder="Smith">
+                                        <label class="form-label HeroFormZipCountryInputLabel">Email Address</label>
+                                        <input type="email" class="form-control HeroFormInput" id="exampleInputEmail1"
+                                            aria-describedby="emailHelp" placeholder="john@example.com">
                                     </div>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label HeroFormZipCountryInputLabel">Email Address</label>
-                                    <input type="email" class="form-control HeroFormInput" id="exampleInputEmail1"
-                                        aria-describedby="emailHelp" placeholder="john@example.com">
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label HeroFormZipCountryInputLabel">Phone Number</label>
@@ -217,14 +212,20 @@
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label HeroFormZipCountryInputLabel">What type of supplemental
-                                        coverage interests you most?</label>
-                                    <select class="form-select HeroFormSelect" aria-label="Default select example">
-                                        <option selected>Select coverage type</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
+                                    <label class="form-label HeroFormTCPACountryInputLabel">
+                                        <input class="form-check-input" type="checkbox" value="" id="checkDefault"
+                                            required>
+                                        By clicking "Submit," I acknowledge and consent to being contacted via
+                                        messaging, voice calls, and/or email by Policy Bear and its marketing partners
+                                        regarding the inquiry I have submitted through this form. I understand that my
+                                        contact information will be used solely for the purpose of responding to my
+                                        inquiry and will be handled in accordance with Policy Bear's privacy policy and
+                                        terms & conditions. I also confirm that I am the authorized user of the contact
+                                        information provided and give my express written consent to receive
+                                        communications, including autodialed and prerecorded messages, even if my number
+                                        is registered on a state or federal Do Not Call (DNC) list. I understand that my
+                                        consent is not a condition of purchase, and I may opt out at any time
+                                    </label>
                                 </div>
                                 <button class="HeroFormButton" type="submit">
                                     See My Supplemental Options
@@ -1000,7 +1001,7 @@
     <div class="container">
         <div class="Don’tMissYourACABenefitsWaper">
             <h1 data-aos="fade-up">
-                Don’t Miss Your ACA Benefits,  Check in 30 Seconds
+                Don’t Miss Your ACA Benefits, Check in 30 Seconds
             </h1>
             <p data-aos="fade-up">
                 Thanks to the Affordable Care Act, most Americans qualify for subsidies that lower their monthly

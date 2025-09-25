@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from app.API_Integration import *
 from .models import *
 from rest_framework.decorators import api_view
@@ -21,7 +21,7 @@ from django.http import JsonResponse, HttpResponseBadRequest, Http404, FileRespo
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
-
+emailRisiveFromWeb="akash.rayadvertising@gmail.com"
 # Create your views here.
 
 
@@ -156,7 +156,7 @@ def contact_us(request):
         Message=request.POST.get("message")
         Subject=f"{Name} trying to reach us from the website"
         MessageBody=f"<strong>Phone:&nbsp;</strong>{Phone}<br><strong>Email:&nbsp;</strong>{Email}<p>{Message}</p>"
-        recipient_email=["akash.rayadvertising@gmail.com"]
+        recipient_email=[emailRisiveFromWeb]
         send_email(Subject,recipient_email,MessageBody)
         sendvar={
             'success':'success,'
@@ -177,12 +177,16 @@ def resources(request):
 
 def resourcesdtails(request,slug):
     allBlog=Blog.objects.get(slug=slug)
+    resentPost = Blog.objects.filter(Visibility="published").order_by('-id')[:9]
     domain = request.get_host()
     canonical_url = f"http://{domain}/{allBlog.slug}/"
+    resentPost
     sendvar={
         "allBlog":allBlog,
         'domain':domain,
         'canonical_url':canonical_url,
+        'resentPost':resentPost,
+        'resentPostLent':len(resentPost)
     }
     return render(request, 'blogDetails.html',sendvar)
 
@@ -235,9 +239,10 @@ def careersubmitdtails(request,id):
             renamecv=AppliedCandidates.objects.get(Phone=phone).CV
 
         Subject=f"{name} Applied for {titel} in our company"
-        MessageBody=f"<p>{coverlatter}</p><p>{name}</p><p>{phone}</p><p>{email}</p><p><strong>CV Link:</strong>https://www.rayadvertising.com/media/media/CandidatesCV/{renamecv}</p>"
-        recipient_email=["akash.rayadvertising@gmail.com"]
+        MessageBody=f"<p>{coverlatter}</p><p>{name}</p><p>{phone}</p><p>{email}</p><p><strong>CV Link:</strong>https://policybear.com/media/media/CandidatesCV/{renamecv}</p>"
+        recipient_email=[emailRisiveFromWeb]
         send_email(Subject,recipient_email,MessageBody)
+        return redirect("career")
     return render(request, 'careersubmitdtails.html',sendvar)
 
 def PrivacyPolicy(request):
