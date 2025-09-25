@@ -41,7 +41,7 @@
     <!-- Animation -->
     {% block head %}{% endblock %}
     <title>{% block title %}{% endblock %} | Policy Bear</title>
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/minimain.css' %}">
 </head>
 
 <body>
@@ -183,7 +183,7 @@
                                             <circle opacity="0.32" cx="6" cy="6.5" r="6" fill="#F6BE00" />
                                             <circle cx="6" cy="6.5" r="3" fill="#F6BE00" />
                                         </svg>
-                                        <span id="navbarAgent">10 agents Available</span>
+                                        <span id="navbarAgent">agents Available</span>
                                     </div>
                                 </div>
                             </div>
@@ -311,7 +311,7 @@
                                         <circle opacity="0.32" cx="6" cy="6.5" r="6" fill="#F6BE00" />
                                         <circle cx="6" cy="6.5" r="3" fill="#F6BE00" />
                                     </svg>
-                                    <span id="navbarAgent">10 agents Available</span>
+                                    <span id="navbarAgent">agents Available</span>
                                 </div>
                             </div>
                         </div>
@@ -724,7 +724,7 @@
         const chatBotApiUrl = "{% url 'ask' %}";
     </script>
     <!-- Bot -->
-    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/minimain.js' %}"></script>
 </body>
 
 </html>
