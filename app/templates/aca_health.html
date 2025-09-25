@@ -22,8 +22,10 @@
                 <h1 class="heroSectionTitle">Secure ACA Health Insurance for Just $10/ Month in 2025!</h1>
                 <p class="heroSectionText">90% of Americans qualify. Find out in 30 seconds—no commitment, no hassle.
                 </p>
-                <p class="heroSectionText2">Find your 2025 ACA health plan in 30 seconds. Over 90% of Americans
-                    qualify—even with recent policy updates.</p>
+                <p class="heroSectionText2">
+                    Shop ACA Health Insurance plans for 2025. Check eligibility fast, compare benefits, and see the
+                    savings most Americans receive.
+                </p>
                 <div class="heroSectionButton">
                     <a href="tel:844POL-BEAR" class="HerroButton-1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
@@ -310,7 +312,7 @@
                 </div>
             </div>
             <div class="WhyUsWaperText2ndACA" data-aos="fade-up">
-                 Not sure if you qualify? Use our ACA Subsidy Calculator to find out in under<span>30 seconds</span>.
+                 Not sure if you qualify? Use our ACA Subsidy Calculator to find out in under<span> 30 seconds</span>.
             </div>
             <div class="WhyUsWaperButtonACAWaper">
                 <a href="{% url 'affordable-health-insurance' %}">
@@ -432,7 +434,7 @@
                                     <path d="M14.6667 15.5835H7.33337" stroke="#0033A0" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
-                                See My State’s Plans
+                                See Federal Plans
                             </button>
                         </a>
                     </div>
@@ -518,8 +520,9 @@
                 How to Enroll in ACA Health Insurance in 2025
             </h1>
             <p class="HowToEnrollInACAText" data-aos="fade-up">
-                It does not matter where you live or what your situation is, there is an ACA plan designed for you.
-                Choose your health insurance plan based on your ZIP code, age, income, and household size.
+                Learn the steps to secure your ACA Health Insurance plan in 2025. Many struggle with enrollment
+                deadlines, eligibility checks, and required documents — Policy Bear guides you through each stage for a
+                smooth, stress-free Marketplace experience.
             </p>
         </div>
         <div class="HowToEnrollInACA-container">
@@ -545,8 +548,8 @@
             </div>
             <div class="HowToEnrollInACA-step-container">
                 <div class="HowToEnrollInACA-step-number">2</div>
-                <div
-                    class="HowToEnrollInACA-step-card right-aligned special-enrollment HowToEnrollInACA-step-cardRight" data-aos="fade-left">
+                <div class="HowToEnrollInACA-step-card right-aligned special-enrollment HowToEnrollInACA-step-cardRight"
+                    data-aos="fade-left">
                     <h1>
                         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
                             <circle cx="24" cy="24" r="24" fill="#E4FFEE" />
@@ -681,7 +684,7 @@
         <div class="HavingtroubleSectionWaper" data-aos="zoom-in">
             <h1 class="HavingtroubleSectionTitel">Having trouble logging into Healthcare.gov?</h1>
             <p class="HavingtroubleSectionText">
-                You can still get full subsidies by applying directly through licensed agents from Policy Bear,no
+                You can still get full subsidies by applying directly through licensed agents from Policy Bear, no
                 government website login required.
             </p>
             <div class="HavingtroubleSectionButtonWaper">
@@ -721,7 +724,8 @@
     <div class="container">
         <div class="BenefitsThatAllACAWaper">
             <h1 class="BenefitsThatAllACATitel" data-aos="fade-up">10 Essential Benefits That All ACA Plans Include</h1>
-            <p class="BenefitsThatAllACAText" data-aos="fade-up">Every ACA-compliant plan, from Bronze to Platinum, must include these
+            <p class="BenefitsThatAllACAText" data-aos="fade-up">Every ACA-compliant plan, from Bronze to Platinum, must
+                include these
                 comprehensive benefits at no extra cost to you.</p>
             <div class="BenefitsThatAllACACardWaper">
                 <div class="BenefitsThatAllACACard" data-aos="fade-right">
@@ -1079,7 +1083,7 @@
                         Calculate My Savings
                     </button>
                 </a>
-                <a href="#">
+                <!-- <a href="#">
                     <button class="WhyACAEssentialBenefitsLeftButtonTow">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                             <path
@@ -1097,7 +1101,7 @@
                         </svg>
                         Compare Plans
                     </button>
-                </a>
+                </a> -->
             </div>
         </div>
         <div class="WhyACAEssentialBenefitsRight">
@@ -1265,7 +1269,7 @@
                         <div id="collapse{{forloop.counter}}" class="accordion-collapse collapse show"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                {{i.Answer}}
+                                {{i.Answer|safe}}
                             </div>
                         </div>
                     </div>
@@ -1281,7 +1285,7 @@
                         <div id="collapse{{forloop.counter}}" class="accordion-collapse collapse"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                {{i.Answer}}
+                                {{i.Answer|safe}}
                             </div>
                         </div>
                     </div>
@@ -1290,8 +1294,9 @@
                 </div>
             </div>
 
-            <a href="#" class="FAQButton">
-                <button class="FAQButtonOne" data-aos="flip-right">Still have questions? Chat with a licensed agent</button>
+            <a class="FAQButton">
+                <button class="cbToggle FAQButtonOne" data-aos="flip-right">Still have questions? Chat with a licensed
+                    agent</button>
             </a>
 
         </div>

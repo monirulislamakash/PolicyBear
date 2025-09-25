@@ -16,6 +16,38 @@ let PlayWithSound = () => {
         video.muted = true;
     }, 7000);
 }
+// Function to get a random integer between min and max (inclusive)
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// Get a random number between 3 and 10 (inclusive)
+let AgentsCount = getRandomIntInclusive(3, 10);
+
+document.getElementById('navbarAgent').textContent  = `${AgentsCount} agents Available`;
+
+// FIle Download Option
+function downloadFile(url, filename) {
+  // Create a temporary anchor element
+  const link = document.createElement('a');
+  link.style.display = 'none';
+  link.href = url;
+  
+  // The 'download' attribute specifies the filename
+  link.download = filename;
+
+  // Append the link to the document body
+  document.body.appendChild(link);
+
+  // Programmatically click the link to trigger the download
+  link.click();
+
+  // Clean up by removing the temporary link
+  document.body.removeChild(link);
+}
+
 // =======================Bot====================\\
 
 (function() {

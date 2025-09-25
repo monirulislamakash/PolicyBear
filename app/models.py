@@ -17,7 +17,16 @@ from tinymce.models import HTMLField
 class Blog(models.Model):
     Name = models.CharField(max_length=350)
     Image = ResizedImageField(quality=85, force_format='WEBP', upload_to="BlogImage/")
-    
+    STATUS_CHOICES = [
+        ('Draft', 'Draft'),
+        ('published', 'published'),
+    ]
+    Visibility=models.CharField(
+        max_length=10,
+        choices=STATUS_CHOICES,
+        default='Draft'
+    )
+    Prview = models.URLField(blank=True, help_text="Click To See Prview", default="https://policybear.com")
     Meta_Titel = models.CharField(max_length=60, default='')
     Meta_Description = models.TextField(default='')
     Canonical_Url = models.CharField(max_length=500, default="na")
@@ -43,7 +52,7 @@ class Blog(models.Model):
             while Blog.objects.filter(slug=new_slug).exists():
                 new_slug = f"{base_slug}-{counter}"
                 counter += 1
-            
+            self.Prview= f"https://policybear.com/privew/{new_slug}"
             self.slug = new_slug
 
         super().save(*args, **kwargs)
@@ -63,7 +72,9 @@ class Disclaimer(models.Model):
     Disclaimer=HTMLField()
     Date=models.DateField(default=datetime.datetime.today())
 
-
+class Accessibility(models.Model):
+    Accessibility=HTMLField()
+    Date=models.DateField(default=datetime.datetime.today())
 
 
 #==============================>

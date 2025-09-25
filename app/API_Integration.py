@@ -174,6 +174,7 @@ def get_Offer_details(get_Zip,county_fips,state_abbr,get_income,get_age,get_gend
         # Save filtered response
         # with open(output_filename, 'w') as f:
         #     json.dump(filtered_plans, f, indent=4)
+        
         return filtered_plans
     else:
         print(f"Error: {response.status_code}")

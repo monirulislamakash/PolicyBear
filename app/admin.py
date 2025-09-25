@@ -10,6 +10,7 @@ admin.site.register(CareersDepartment)
 admin.site.register(Privacy_Policy)
 admin.site.register(Terms_of_Service)
 admin.site.register(Disclaimer)
+admin.site.register(Accessibility)
 
 class StateAdmin(admin.ModelAdmin):
     list_display = ('state',)
@@ -47,6 +48,6 @@ admin.site.register(AppliedCandidates,AppliedCandidatesAdmin)
 
 class BlogAdmin(admin.ModelAdmin):
     list_display = ('Name','Date')
+    readonly_fields=('Prview',)
     search_fields = ('Name','Date')
-    readonly_fields=('slug',)
 admin.site.register(Blog,BlogAdmin)

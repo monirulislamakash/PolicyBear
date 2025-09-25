@@ -26,15 +26,20 @@ urlpatterns = [
     path('privacy-policy', PrivacyPolicy, name="PrivacyPolicy"),
     path('terms-conditions', TermsofService, name="TermsofService"),
     path('disclaimer', disclaimer, name="disclaimer"),
+    path('accessibility', accessibility, name='Accessibility'),
 
     # Dynamic pages
     path('resources/dtails/<slug:slug>', resourcesdtails, name='resourcesdtails'),
+    path('privew/<slug:slug>', privew_blog, name='privew_blog'),
     path('career/details-page/<int:int>', careerdtails, name='careerdtails'),
     path('career/submit/details-page/<int:id>', careersubmitdtails, name='careersubmitdtails'),
 
     # Sitemaps and Robots.txt
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('robots.txt', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
+
+    # Document
+    path('download/<str:filename>/', download_document, name='download_document'),
 
     # Bot Endpoints
     path("ask", ask, name="ask"),

@@ -101,8 +101,10 @@
                 {% for blog in allBlog %}
                 <div class="LatestACAInsightsGuidesCard">
                     <div class="LatestACAInsightsGuidesCardImagesWaper">
+                        <a href="{% url 'resourcesdtails' blog.slug %}">
                         <img class="LatestACAInsightsGuidesCardImages" src="{{blog.Image.url}}" alt="blogImage"
                             loading="lazy">
+                            </a>
                     </div>
                     <div class="LatestACAInsightsGuidesCardBodyWaper">
                         <div class="LatestACAInsightsGuidesCardTimeDate">
@@ -136,7 +138,9 @@
                             </span>
                         </div>
                         <div class="LatestACAInsightsGuidesCardTitel">
+                            <a href="{% url 'resourcesdtails' blog.slug %}">
                             {{blog.Name}}
+                            </a>
                         </div>
                         <div class="LatestACAInsightsGuidesCardText">
                             {{blog.Name}}...

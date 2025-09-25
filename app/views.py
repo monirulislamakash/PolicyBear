@@ -17,9 +17,11 @@ from dotenv import load_dotenv
 # Image Upload CkEditor
 import uuid
 from PIL import Image
-from django.http import JsonResponse, HttpResponseBadRequest
+from django.http import JsonResponse, HttpResponseBadRequest, Http404, FileResponse
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 
 
@@ -60,7 +62,10 @@ def affordable_health_insurance(request):
                 for r in Result:
                     if 'molina' in str(r['issuer_name'].lower()):
                         FinalResult=r
-                        return Response(FinalResult)
+                        sendvar={
+                            'responce':FinalResult
+                        }
+                        return render(request, 'aca_health.html',sendvar)
                     if str(Offer) in str(r['name']):
                         bar=r
                         bar['carrier']=str(Offer)
@@ -160,7 +165,7 @@ def contact_us(request):
     return render(request, 'contact.html')
 
 def resources(request):
-    allBlog=Blog.objects.all().order_by('-id')
+    allBlog=Blog.objects.filter(Visibility="published").order_by('-id')
     pagination=Paginator(allBlog,9)
     pageNumber=request.GET.get('page')
     pageObject=pagination.get_page(pageNumber)
@@ -180,6 +185,20 @@ def resourcesdtails(request,slug):
         'canonical_url':canonical_url,
     }
     return render(request, 'blogDetails.html',sendvar)
+
+@login_required
+def privew_blog(request,slug):
+    allBlog=Blog.objects.get(slug=slug)
+    domain = request.get_host()
+    canonical_url = f"http://{domain}/{allBlog.slug}/"
+    sendvar={
+        "allBlog":allBlog,
+        'domain':domain,
+        'canonical_url':canonical_url,
+    }
+    return render(request, 'blogDetails.html',sendvar)
+
+
 
 def career(request):
     career=JobPost.objects.all()
@@ -229,7 +248,18 @@ def PrivacyPolicy(request):
     return render(request, 'PrivacyPolicy.html',sendvar)
 
 def TermsofService(request):
-    return render(request, 'TermsofService.html')
+    getPrivacyPolicy=Terms_of_Service.objects.last()
+    sendvar={
+        'getPrivacyPolicy':getPrivacyPolicy
+    }
+    return render(request, 'TermsofService.html',sendvar)
+
+def accessibility(request):
+    getPrivacyPolicy=Accessibility.objects.last()
+    sendvar={
+        'getPrivacyPolicy':getPrivacyPolicy
+    }
+    return render(request, 'accessibility.html',sendvar)
 
 def disclaimer(request):
     getPrivacyPolicy=Disclaimer.objects.last()
@@ -237,6 +267,18 @@ def disclaimer(request):
         'getPrivacyPolicy':getPrivacyPolicy
     }
     return render(request, 'disclaimer.html',sendvar)
+
+def download_document(request,filename):
+    print(filename)
+    # This is a basic example; for security, you should use a model to validate filenames.
+    file_path = os.path.join(settings.MEDIA_ROOT, 'documents', filename)
+
+    if not os.path.isfile(file_path):
+        raise Http404("File not found.")
+    response = FileResponse(open(file_path, 'rb'))
+    response['Content-Disposition'] = f'attachment; filename="{filename}"'
+    return response
+
 
 @csrf_exempt
 def ckeditor_upload_to_webp(request):
@@ -279,17 +321,6 @@ def ckeditor_upload_to_webp(request):
         "url": image_url.replace(os.sep, '/') 
     }
     return JsonResponse(response_data)
-
-
-
-
-
-
-
-
-
-
-
 
 
 
