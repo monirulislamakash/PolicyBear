@@ -150,7 +150,6 @@ def get_Offer_details(get_Zip,county_fips,state_abbr,get_income,get_age,get_gend
 
     if response.status_code == 200:
         response_data = response.json()
-        
         # Filter only required fields
         filtered_plans = []
         for plan in response_data.get("plans", []):
@@ -162,7 +161,7 @@ def get_Offer_details(get_Zip,county_fips,state_abbr,get_income,get_age,get_gend
                 "plan":f'{issuer_name.split()[0]} {plan.get("metal_level")} Plan',
                 # "premium": plan.get("premium"),
                 "premium": plan.get("ehb_premium"),
-                "subsidy ": plan.get("premium_w_credit"),
+                "subsidy": plan.get("premium_w_credit"),
                 "pediatric_ehb_premium": plan.get("pediatric_ehb_premium"),
                 "aptc_eligible_premium": plan.get("aptc_eligible_premium"),
                 "metal_level": plan.get("metal_level"),

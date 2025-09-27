@@ -1495,7 +1495,7 @@ a {
 
 .HeroFormHelp {
     color: var(--Primary-200, #9DC1F5);
-    font-family: Geist;
+    font-family: Inter;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -1728,9 +1728,8 @@ a {
     letter-spacing: -0.64px;
 }
 
-.ACAMarketplacePlansCardName img {
-    width: 171px;
-    height: 21px;
+.ACAMarketplacePlansCardName p {
+    margin: 0px;
 }
 
 .ACAMarketplacePlansCardText {
@@ -2192,6 +2191,14 @@ a {
     background: #F6BE00;
     box-shadow: 0 8px 15px 0 rgba(11, 34, 69, 0.30);
     border: none;
+    color: #0033A0;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+    text-transform: capitalize;
+    border: none;
 }
 
 .CriticalACAUpdates {
@@ -2492,6 +2499,14 @@ a {
     background: #F6BE00;
     box-shadow: 0 8px 15px 0 rgba(11, 34, 69, 0.30);
     border: none;
+    color: #0033A0;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+    text-transform: capitalize;
+    border: none;
 }
 
 .FAQ_ACA {
@@ -2622,10 +2637,10 @@ a {
 .WhatExactlyIsSupplementalInsuranceContent table tr td {
     margin-bottom: 24px;
     color: var(--Primary-500, #0033A0);
-    font-family: Merriweather;
+    font-family: Inter;
     font-size: 18px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 24px;
 }
 
@@ -3493,7 +3508,7 @@ a {
 
 .AboutPolicyBearContentOurMissionHeadTitelWaper p {
     color: #F6BE00;
-    font-family: Geist;
+    font-family: Merriweather;
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
@@ -3612,6 +3627,7 @@ a {
     line-height: 32px;
     letter-spacing: -0.48px;
     margin: 0px;
+    text-transform: capitalize;
 }
 
 .OurValuesPhilosophyCardHead p {
@@ -3916,7 +3932,7 @@ a {
 
 .RealExpertsRealsupportCardBody span {
     color: #78BE20;
-    font-family: Geist;
+    font-family: Inter;
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
@@ -4018,7 +4034,7 @@ a {
     gap: 8px;
     border-radius: 9999px;
     background: rgba(120, 190, 32, 0.25);
-    color: #78BE20;
+    color: #fff;
     text-align: center;
     font-family: Inter;
     font-size: 12px;
@@ -4799,7 +4815,7 @@ a {
 .ComeVisitUsOrGetInTouchCardSmallThreeHead p {
     width: 80%;
     color: #DBEAFE;
-    font-family: Geist;
+    font-family: Inter;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -6346,19 +6362,26 @@ a {
 }
 
 .clickforsound {
-    width: 370px;
+    width: 500px;
     height: auto;
     position: fixed;
     flex-direction: column;
     bottom: 2%;
-    right: 1%;
+    left: 1%;
     background: #fff;
     padding: 15px;
     display: none;
-    align-items: end;
+    align-items: start;
     gap: 15px;
     box-shadow: 0 8px 15px 0 rgba(11, 34, 69, 0.30);
     z-index: 3;
+}
+
+.clickforsound h1 {
+    font-size: 20px;
+    margin: 0px;
+    font-family: Merriweather;
+    color: #04285C;
 }
 
 .clickforsoundButton {
@@ -6370,7 +6393,7 @@ a {
 .clickforsound p {
     color: #0b3d8a;
     font-family: Inter;
-    font-size: 12px;
+    font-size: 13px;
     font-style: normal;
     font-weight: 400;
     line-height: 20px;
@@ -6379,6 +6402,7 @@ a {
 
 .AcceptButton {
     display: flex;
+    width: 150px;
     height: 35px;
     padding: 0 20px;
     justify-content: center;
@@ -6390,7 +6414,7 @@ a {
     border: none;
     color: #073B89;
     font-family: Inter;
-    font-size: 12px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 600;
     line-height: 150%;
@@ -6399,6 +6423,7 @@ a {
 
 .DeclineButton {
     display: flex;
+    width: 150px;
     height: 35px;
     padding: 0 20px;
     justify-content: center;
@@ -6409,7 +6434,7 @@ a {
     box-shadow: 0 8px 15px 0 rgba(11, 34, 69, 0.30);
     color: #0033A0;
     font-family: Inter;
-    font-size: 12px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 600;
     line-height: 150%;
@@ -9110,6 +9135,7 @@ a {
         font-weight: 600;
         line-height: 32px;
         letter-spacing: -0.4px;
+
     }
 
     .OurValuesPhilosophyCardHead p {
@@ -10259,7 +10285,7 @@ a {
 
 .FooterTitel {
     color: #FFF;
-    font-family: "Playfair Display";
+    font-family: Merriweather;
     font-size: 20px;
     font-style: normal;
     font-weight: 700;
@@ -10273,6 +10299,7 @@ a {
     font-style: normal;
     font-weight: 400;
     line-height: 24px;
+    cursor: pointer;
 }
 
 .FooterList a {

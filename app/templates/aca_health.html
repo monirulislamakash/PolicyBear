@@ -138,7 +138,9 @@
                         </div>
                         <div class="HeroForm">
                             {% if responce %}
+                            {% if responce.premium %}
                             <h1 class="subsidyCalculatorHead">${{responce.premium}}</h1>
+                            {% endif %}
                             <p class="subsidyCalculatorText">{{responce.plan}}</p>
                             <a href="tel:844POL-BEAR">
                                 <button class="HeroFormButton" type="submit">
@@ -164,7 +166,8 @@
                                             </clipPath>
                                         </defs>
                                     </svg>
-                                    Talk to a Licensed Agent </button>
+                                    Maximize Your Benefits Now
+                                </button>
                             </a>
                             {% else %}
                             <form method="POST">
@@ -172,12 +175,12 @@
                                 <div class="mb-3">
                                     <label class="form-label HeroFormZipCountryInputLabel">ZIP Code</label>
                                     <input type="text" class="form-control" id="exampleInputEmail1"
-                                        aria-describedby="emailHelp" placeholder="12345" name="zip" required>
+                                        aria-describedby="emailHelp" placeholder="81126" name="zip" required>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label HeroFormZipCountryInputLabel">How old are you?</label>
                                     <input type="text" class="form-control" id="exampleInputEmail1"
-                                        aria-describedby="emailHelp" placeholder="12345" name="age" required>
+                                        aria-describedby="emailHelp" placeholder="27" name="age" required>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label HeroFormZipCountryInputLabel">Gender</label>
@@ -386,12 +389,11 @@
                         </div>
                         <div class="ACAMarketplacePlansCardName">
                             <h1>Federal Marketplace</h1>
-                            <img src="{% static 'images/ACAMarketplacePlansCardNameImage.webp' %}" alt="images"
-                                loading="lazy">
+                            <p>Healthcare.gov</p>
                         </div>
                     </div>
                     <div class="ACAMarketplacePlansCardText">
-                        Most states use plans from the government marketplace like Healthcare.gov. You get the same
+                        Most states use plans from the government marketplace. You get the same
                         subsidies and protections if you are eligible.
                     </div>
                     <ul class="ACAMarketplacePlansCardLIST">
@@ -690,29 +692,6 @@
             <div class="HavingtroubleSectionButtonWaper">
                 <a href="{% url 'affordable-health-insurance' %}">
                     <button class="HavingtroubleSectionButton">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
-                            <path
-                                d="M14 1.5H5C4.17157 1.5 3.5 2.17157 3.5 3V15C3.5 15.8284 4.17157 16.5 5 16.5H14C14.8284 16.5 15.5 15.8284 15.5 15V3C15.5 2.17157 14.8284 1.5 14 1.5Z"
-                                stroke="#0033A0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M6.5 4.5H12.5" stroke="#0033A0" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path d="M12.5 10.5V13.5" stroke="#0033A0" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path d="M12.5 7.5H12.5075" stroke="#0033A0" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path d="M9.5 7.5H9.5075" stroke="#0033A0" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path d="M6.5 7.5H6.5075" stroke="#0033A0" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path d="M9.5 10.5H9.5075" stroke="#0033A0" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path d="M6.5 10.5H6.5075" stroke="#0033A0" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path d="M9.5 13.5H9.5075" stroke="#0033A0" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path d="M6.5 13.5H6.5075" stroke="#0033A0" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
                         Calculate My Subsidy Instead
                     </button>
                 </a>
@@ -1315,7 +1294,7 @@
                 <p class="CTAText">You deserve clear, affordable coverage. We’ll help you get it with licensed agents,
                     smart tools, and no pressure.</p>
                 <div class="CTAButtonWaper">
-                    <a href="#">
+                    <a href="{% url 'supplement-insurance' %}">
                         <button class="CTAButtonOne">
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
                                 fill="none">

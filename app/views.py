@@ -79,7 +79,7 @@ def affordable_health_insurance(request):
                 choice.append(counter)
                 counter+=1
             GetTheSecondaryOffer=SecondaryOffer.objects.filter(AgeFrom__lte=int(get_age),AgeTo__gte=int(get_age))[random.choice(choice)]
-            offers_list = {'name': str(GetTheSecondaryOffer.PolicyPlan),'carrier': str(GetTheSecondaryOffer.Carrier)}
+            offers_list = {'plan': f"{str(GetTheSecondaryOffer.PolicyPlan)} {str(GetTheSecondaryOffer.Carrier)}",}
             sendvar={
                 'responce':offers_list
             }
@@ -482,7 +482,7 @@ def api_for_ai_agent(request):
             choice.append(counter)
             counter+=1
         GetTheSecondaryOffer=SecondaryOffer.objects.filter(AgeFrom__lte=int(get_age),AgeTo__gte=int(get_age))[random.choice(choice)]
-        offers_list = {'name': str(GetTheSecondaryOffer.PolicyPlan),'carrier': str(GetTheSecondaryOffer.Carrier)}
+        offers_list = {'plan': f"{str(GetTheSecondaryOffer.PolicyPlan)} {str(GetTheSecondaryOffer.Carrier)}"}
         return Response(offers_list)
     try:
         all_carriers_by_name = {carrier.carrier: carrier for carrier in Carrier.objects.all()}
@@ -524,3 +524,24 @@ def api_for_ai_agent(request):
             if item_key in Result[0]:
                 Result[0].pop(item_key)
         return Response(Result[0])
+    
+
+@api_view(['POST'])
+def api_for_ai_agent_one(request):
+    get_Zip = request.data.get("zip")
+    get_income = request.data.get("income")
+    get_age = request.data.get("age")
+    get_gender = request.data.get("gender")
+    county_fips, state_abbr = get_county_fips_with_state(get_Zip)
+    Result=get_Offer_details(get_Zip,county_fips,state_abbr,get_income,get_age,get_gender)
+    OurAllOffer=['Health First','Antidote Health','Anthem']
+    allState=['GA', 'MO', 'OH', 'WI', 'OH', 'AZ', 'FL']
+    FinalResult={}
+    try:
+        for Offer in OurAllOffer:
+            for r in Result:
+                if Offer.lower() in str(r['issuer_name'].lower()) and str(r['state']) in allState and int(r['subsidy']) == 0 :
+                    FinalResult=r
+                    return Response(FinalResult)
+    except:
+        return Response({"sorry":"Sorry, you do not qualify. Call This Number (844) POL-BEAR"})

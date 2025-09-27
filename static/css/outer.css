@@ -142,7 +142,7 @@
     font-weight: 400;
     line-height: 20px;
     gap: 5px;
-    text-transform: lowercase;
+    text-transform: capitalize;
 }
 
 .HowToEnrollInACA-step-number {

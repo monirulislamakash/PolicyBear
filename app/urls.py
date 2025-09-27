@@ -47,4 +47,6 @@ urlpatterns = [
     path("gpt_echo", gpt_echo, name="gpt_echo"),
     # APT Endpoints
     path('api/ai/agent/', api_for_ai_agent, name='api_for_ai_agent'),
+    path('api/ai/agent-one/', api_for_ai_agent_one, name='api_for_ai_agent_one'),
+
 ]
